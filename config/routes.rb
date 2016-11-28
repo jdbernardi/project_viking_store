@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   get '/' => 'static_pages#dashboard'
 
-
+  get 'index' => 'static_pages#index'
 
 
 end
