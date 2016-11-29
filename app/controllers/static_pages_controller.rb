@@ -6,10 +6,13 @@ class StaticPagesController < ApplicationController
 		@total_users = User.all
 		@total_orders = Order.all
 		@total_products = Product.all
+		@order_contents = OrderContent.all
 
-		OrderContent.joins(:product)
-		
-		#revenue is equal to the sum of all the orders
+		array = []
+
+		@order_contents.each{ |x| array << x.revenue }
+
+    @revenue = array.inject(0) { |r,e| r+e }
 
 	end
 
