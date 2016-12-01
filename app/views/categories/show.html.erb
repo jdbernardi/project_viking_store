@@ -22,7 +22,8 @@
 		<thead>
 				<tr>
 					<th class="col-xs-2">Title</th>
-					<th class="col-xs-6">Description</th>
+					<th class="col-xs-2">ID</th>
+					<th class="col-xs-4">Description</th>
 					<th class="col-xs-4">Action</th>
 				</tr>
 			</thead>
@@ -30,7 +31,8 @@
 				<% @products.each do | product | %>
 					<tr>
 						<td class="col-xs-2"><%= product.name %></td>
-						<td class="col-xs-6"><%= product.description %></td>
+						<td class="col-xs-2"><%= product.category_id %></td>
+						<td class="col-xs-4"><%= product.description %></td>
 
 						<td class="col-xs-4">
 							<%= link_to "Show" %>
