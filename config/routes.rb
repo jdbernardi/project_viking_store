@@ -2,13 +2,14 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :static_pages
-  resources :admins
+  resources :admins do
 
-  get '/' => 'static_pages#dashboard'
+  	resources :categories
 
-  get 'index' => 'static_pages#index'
+  end
 
-  get 'admins/category' => 'admins#category'
+  get '/' => 'static_pages#index'
+
 
 
 end

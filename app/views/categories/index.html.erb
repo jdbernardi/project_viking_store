@@ -1,0 +1,23 @@
+<div class="container">
+
+	<h2>Categories</h2>
+	<div class="table-responsive">
+		<table class="table">
+		<thead>
+			<tr>
+				<th class="col-xs-3">Category</th>
+				<th class="col-xs-9">Description</th>
+			</tr>
+			</thead>
+			<tbody>
+				<% @categories.each do |c| %>
+				<tr>
+					<td><%= c.name %></td>
+					<td><%= c.description %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+
+</div>
