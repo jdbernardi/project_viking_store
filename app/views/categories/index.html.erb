@@ -4,20 +4,27 @@
 	<div class="table-responsive">
 		<table class="table">
 		<thead>
-			<tr>
-				<th class="col-xs-3">Category</th>
-				<th class="col-xs-9">Description</th>
-			</tr>
+				<tr>
+					<th class="col-xs-2">Category</th>
+					<th class="col-xs-6">Description</th>
+					<th class="col-xs-4">Action</th>
+				</tr>
 			</thead>
 			<tbody>
 				<% @categories.each do |c| %>
-				<tr>
-					<td><%= c.name %></td>
-					<td><%= c.description %></td>
-				</tr>
+					<tr>
+						<td class="col-xs-2"><%= c.name %></td>
+						<td class="col-xs-6"><%= c.description %></td>
+
+						<td class="col-xs-4">
+							<button class="btn-small">Show</button>
+							<button class="btn-small">Edit</button>
+							<button class="btn-small">Delete</button>
+						</td>
+
+					</tr>
 				<% end %>
 			</tbody>
 		</table>
 	</div>
-
 </div>
