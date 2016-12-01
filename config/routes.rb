@@ -8,5 +8,7 @@ Rails.application.routes.draw do
 
   get 'index' => 'static_pages#index'
 
+  get 'admins/category' => 'admins#category'
+
 
 end
