@@ -1,0 +1,46 @@
+<div class="container">
+
+
+<%= link_to "Edit", edit_category_path( @category ) %>
+<%= link_to "Delete", category_path %>
+
+<%= form_for @category, :url => {:action => "create"} do |f| %>
+
+	<%= f.label :id %>
+	<%= @category.id %><br />
+	<%= f.label :name %>
+	<%= @category.name %>
+
+<% end %>
+
+
+
+	<h2>Products</h2>
+
+	<div class="table-responsive">
+		<table class="table">
+		<thead>
+				<tr>
+					<th class="col-xs-2">Title</th>
+					<th class="col-xs-6">Description</th>
+					<th class="col-xs-4">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @products.each do | product | %>
+					<tr>
+						<td class="col-xs-2"><%= product.name %></td>
+						<td class="col-xs-6"><%= product.description %></td>
+
+						<td class="col-xs-4">
+							<%= link_to "Show" %>
+							<%= link_to "Edit" %>
+							<%= link_to "Delete" %>
+						</td>
+
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>

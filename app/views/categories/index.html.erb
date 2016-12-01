@@ -4,7 +4,7 @@
 
 	<h2>Categories</h2>
 	<div>
-		<%= link_to "New Category", new_admin_category_path, :class => "btn btn-primary" %><br /><br />
+		<%= link_to "New Category", new_category_path, :class => "btn btn-primary" %><br /><br />
 	</div>
 	<div class="table-responsive">
 		<table class="table">
@@ -22,7 +22,7 @@
 						<td class="col-xs-6"><%= c.description %></td>
 
 						<td class="col-xs-4">
-							<%= link_to "Show" %>
+							<%= link_to "Show", category_path( c ) %>
 							<%= link_to "Edit" %>
 							<%= link_to "Delete" %>
 						</td>

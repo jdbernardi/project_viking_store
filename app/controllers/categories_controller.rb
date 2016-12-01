@@ -20,15 +20,18 @@ class CategoriesController < ApplicationController
 
 		if @category.save
 			flash.notice = "Category #{@category.name} Created!"
-			redirect_to admin_categories_path
+			redirect_to categories_path
 		else
 			flash.notice = errors
-			redirect_to new_admin_category_path
+			redirect_to new_category_path
 		end
 
 	end
 
 	def show
+
+		@category = Category.find( params[:id] )
+		@products = Product.all
 
 	end
 
