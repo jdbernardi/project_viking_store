@@ -1,5 +1,9 @@
 <%= form_for @category, :url => {:action => "create"} do |f| %>
 
+	<%= f.label :id %>
+	<%= @category.id %><br />
+
+
 	<%= f.label :name %>
 	<% if !@category.errors[:name].empty? %>
     <%= @category.errors[:name].join %>
@@ -10,8 +14,8 @@
 	<% if !@category.errors[:description].empty? %>
     <%= @category.errors[:description].join %>
   <% end %>
-	<%= f.text_field :description, placeholder: 'description' %> <br />
+	<%= f.text_field :description, placeholder: 'Description' %> <br />
 
-	<%= f.submit %>
+	<%= f.submit :Create, class: "btn btn-success" %>
 
 <% end %>
