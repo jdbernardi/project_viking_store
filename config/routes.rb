@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   get '/' => 'static_pages#index'
 
-
+ 	scope '/admin' do
+ 		resources :categories
+ 	end
 
 end
