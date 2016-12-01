@@ -1,5 +1,5 @@
 class Category < ApplicationRecord
 
-	validates :name, length: { in: 4..16 },presence: { message: "must be given please" }
+	validates :name, length: { in: 4..16 },presence: true
 
 end

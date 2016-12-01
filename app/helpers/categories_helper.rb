@@ -4,4 +4,11 @@ module CategoriesHelper
 		params.require( :category ).permit(:name, :description )
 	end
 
+	def errors
+
+			flash.notice = "#{@category.errors.full_messages.join}"
+
+
+	end
+
 end

@@ -22,7 +22,8 @@ class CategoriesController < ApplicationController
 			flash.notice = "Category #{@category.name} Created!"
 			redirect_to admin_categories_path
 		else
-			render new_admin_category_path
+			flash.notice = errors
+			redirect_to new_admin_category_path
 		end
 
 	end
