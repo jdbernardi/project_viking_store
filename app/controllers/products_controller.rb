@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
 
 	def show
 
-    @category = Category.find(params[:id])
+    @product = Product.find( params[:id] )
 
 
 	end
