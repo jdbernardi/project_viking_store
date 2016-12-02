@@ -1,0 +1,22 @@
+<%= form_for @category, :url => {:action => "create"} do |f| %>
+
+	<%= f.label :id %>
+	<%= @category.id %><br />
+
+
+	<%= f.label :name %>
+
+	<% if !@category.errors[:name].empty? %>
+    <%= @category.errors[:name].join %>
+  <% end %>
+	<%= f.text_field :name, placeholder: 'Enter Name' %> <br />
+
+	<%= f.label :description %>
+	<% if !@category.errors[:description].empty? %>
+    <%= @category.errors[:description].join %>
+  <% end %>
+	<%= f.text_field :description, placeholder: 'Description' %> <br />
+
+	<%= f.submit :Create, class: "btn btn-success" %>
+
+<% end %>
