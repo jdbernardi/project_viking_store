@@ -41,7 +41,7 @@
 
 							<%  @categories.each do |c| %>
 								<% if c.id == p.category_id %>
-								<%= c.name %>
+								<%= link_to c.name, category_path( c ) %>
 								<% end %>
 							<% end %>
 
