@@ -41,4 +41,8 @@ class CategoriesController < ApplicationController
 
 	end
 
+	def update
+
+	end
+
 end
