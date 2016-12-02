@@ -33,11 +33,18 @@
 			</thead>
 			<tbody>
 				<% @products.each do | p | %>
+
 					<tr>
 						<td class="col-xs-2"><%= p.name %></td>
 						<td class="col-xs-4"><%= p.description %></td>
+						<td class="col-xs-2">
 
-						<td class="col-xs-2"><%=  %>
+							<%  @categories.each do |c| %>
+								<% if c.id == p.category_id %>
+								<%= c.name %>
+								<% end %>
+							<% end %>
+
 
 						<td class="col-xs-4">
 							<%= link_to "Show", product_path( p ) %>
