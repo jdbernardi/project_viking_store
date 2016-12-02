@@ -17,29 +17,32 @@
         <div class="col-xs-7 col-xs-offset-1 admin-view">
 
 <%= render partial: 'notice' %>
-	<h2>Categories</h2>
+	<h2>Products</h2>
 	<div>
-		<%= link_to "New Category", new_category_path, :class => "btn btn-primary" %><br /><br />
+		<%= link_to "New Product", new_product_path, :class => "btn btn-primary" %><br /><br />
 	</div>
 	<div class="table-responsive">
 		<table class="table">
 		<thead>
 				<tr>
+					<th class="col-xs-2">Product</th>
+					<th class="col-xs-4">Description</th>
 					<th class="col-xs-2">Category</th>
-					<th class="col-xs-6">Description</th>
 					<th class="col-xs-4">Action</th>
 				</tr>
 			</thead>
 			<tbody>
-				<% @categories.each do |c| %>
+				<% @products.each do | p | %>
 					<tr>
-						<td class="col-xs-2"><%= c.name %></td>
-						<td class="col-xs-6"><%= c.description %></td>
+						<td class="col-xs-2"><%= p.name %></td>
+						<td class="col-xs-4"><%= p.description %></td>
+
+						<td class="col-xs-2"><%=  %>
 
 						<td class="col-xs-4">
-							<%= link_to "Show", category_path( c ) %>
+							<%= link_to "Show", product_path( p ) %>
 							<%= link_to "Edit" %>
-							<%= link_to "Delete", category_path( c ), method: :delete, data: {confirm: "Really delete the category?"} %>
+							<%= link_to "Delete", product_path( p ), method: :delete, data: {confirm: "Really delete the category?"} %>
 						</td>
 
 					</tr>

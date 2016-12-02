@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
  	scope '/admin' do
  		resources :categories
+ 		resources :products
  	end
 
 end

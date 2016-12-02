@@ -1,18 +1,17 @@
 <div class="container">
 
 
-<%= link_to "Edit", edit_category_path( @category ) %>
-<%= link_to "Delete", category_path( @category ), method: :delete, data: {confirm: "Really delete the category?"} %>
-
 <%= form_for @category, :url => {:action => "create"} do |f| %>
 
-	<%= f.label :id %>
+	<%= f.label :Category_ID %>
 	<%= @category.id %><br />
 	<%= f.label :name %>
 	<%= @category.name %>
 
 <% end %>
 
+<%= link_to "Edit Category", edit_category_path( @category ) %><br />
+<%= link_to "Delete Category", category_path( @category ), method: :delete, data: {confirm: "Really delete the category?"} %>
 
 
 	<h2>Products</h2>
