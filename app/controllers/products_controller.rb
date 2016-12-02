@@ -10,6 +10,8 @@ class ProductsController < ApplicationController
 
     @product = Product.find( params[:id] )
 
+    @product.orders
+
 
 	end
 
