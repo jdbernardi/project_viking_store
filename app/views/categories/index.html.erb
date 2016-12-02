@@ -24,7 +24,7 @@
 						<td class="col-xs-4">
 							<%= link_to "Show", category_path( c ) %>
 							<%= link_to "Edit" %>
-							<%= link_to "Delete" %>
+							<%= link_to "Delete", category_path( c ), method: :delete, data: {confirm: "Really delete the category?"} %>
 						</td>
 
 					</tr>

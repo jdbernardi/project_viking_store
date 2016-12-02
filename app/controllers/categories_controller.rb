@@ -60,4 +60,19 @@ class CategoriesController < ApplicationController
 
 	end
 
+
+	def destroy
+
+		@category = Category.find( params[ :id ])
+
+		@category.destroy
+
+			flash.notice = "Category #{@category.name} Deleted!!!"
+
+		redirect_to categories_path
+
+
+	end
+
+
 end
