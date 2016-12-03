@@ -10,7 +10,12 @@ module ProductsHelper
 
 	end
 
+	def remove_dollar_sign
 
+
+		@product[:price].to_s.delete( "$" ).to_i
+
+	end
 
 	def errors
 

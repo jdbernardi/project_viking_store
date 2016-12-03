@@ -21,6 +21,7 @@ class ProductsController < ApplicationController
         @product = Product.new( products_params )
 
         generate_sku
+        remove_dollar_sign
 
         if @product.save
             flash.notice = "Product #{@product.name} Created!"
