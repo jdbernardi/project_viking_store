@@ -1,7 +1,7 @@
 <%= form_for @product do |f| %>
 
 	<%= f.label :id %>
-	<%= @product.id %><br />
+	<%= @product.id.nil? ? "N/A" : @product.id %><br />
 
 
 	<%= f.label :name %>
@@ -9,14 +9,20 @@
 	<% if !@product.errors[:name].empty? %>
     <%= @product.errors[:name].join %>
   <% end %>
-	<%= f.text_field :name, placeholder: 'Enter Name', required: true %> <br />
+	<%= f.text_field :name, placeholder: 'Product Name', required: true %> <br />
 
-	<%= f.label :description %>
-	<% if !@product.errors[:description].empty? %>
-    <%= @product.errors[:description].join %>
+	<%= f.label :price %>
+	<% if !@product.errors[:price].empty? %>
+    <%= @product.errors[:price].join %>
   <% end %>
-	<%= f.text_field :description, placeholder: 'Description' %> <br />
+	<%= f.text_field :price, placeholder: '$0.00' %> <br />
 
-	<%= f.submit :Add, class: "btn btn-success" %>
+	<%= f.label :category %>
+	<% if !@product.errors[:category].empty? %>
+    <%= @product.errors[:category].join %>
+  <% end %>
+	<%= f.text_field :category, placeholder: 'category' %> <br />
+
+	<%= f.submit :Add, class: "btn btn-primary" %>
 
 <% end %>

@@ -1,7 +1,7 @@
 module ProductsHelper
 
 	def products_params
-		params.require( :product ).permit(:name, :description )
+		params.require( :product ).permit(:name, :description, :sku )
 	end
 
 	def errors
