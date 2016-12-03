@@ -1,0 +1,22 @@
+<%= form_for @product do |f| %>
+
+	<%= f.label :id %>
+	<%= @product.id %><br />
+
+
+	<%= f.label :name %>
+
+	<% if !@product.errors[:name].empty? %>
+    <%= @product.errors[:name].join %>
+  <% end %>
+	<%= f.text_field :name, placeholder: 'Enter Name', required: true %> <br />
+
+	<%= f.label :description %>
+	<% if !@product.errors[:description].empty? %>
+    <%= @product.errors[:description].join %>
+  <% end %>
+	<%= f.text_field :description, placeholder: 'Description' %> <br />
+
+	<%= f.submit :Add, class: "btn btn-success" %>
+
+<% end %>
