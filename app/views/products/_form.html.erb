@@ -15,13 +15,13 @@
 	<% if !@product.errors[:price].empty? %>
     <%= @product.errors[:price].join %>
   <% end %>
-	<%= f.text_field :price, placeholder: '$0.00' %> <br />
+	<%= f.text_field :price, placeholder: '$0.00' , required: true %> <br />
 
 	<%= f.label :category %>
 	<% if !@product.errors[:category].empty? %>
     <%= @product.errors[:category].join %>
   <% end %>
-	<%= f.collection_select :category_id, Category.all, :id, :name %>
+	<%= f.collection_select :category_id, Category.all, :id, :name, required: true, required: true %><br />
 
 	<%= f.submit :Add, class: "btn btn-primary" %>
 

@@ -20,6 +20,8 @@ class ProductsController < ApplicationController
 
         @product = Product.new( products_params )
 
+        generate_sku
+
         if @product.save
             flash.notice = "Product #{@product.name} Created!"
             redirect_to products_path
@@ -35,6 +37,7 @@ class ProductsController < ApplicationController
 	def show
 
     @product = Product.find( params[:id] )
+
 
     @cart = []
     @ordered = []
