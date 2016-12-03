@@ -10,7 +10,24 @@ class ProductsController < ApplicationController
 
     @product = Product.find( params[:id] )
 
-    @product.orders
+    product_ords = @product.orders
+
+    @cart = []
+    @ordered = []
+
+    product_ords.each do | p |
+
+    	if p.checkout_date
+
+    		@ordered << p
+
+    	else
+
+    		@cart	<< "add"
+
+    	end
+
+    end
 
 
 	end
