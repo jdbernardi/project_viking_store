@@ -4,29 +4,28 @@ class ProductsController < ApplicationController
 
 		@products  = Product.all
 		@categories = Category.all
+
 	end
+
+
+	def new
+
+	end
+
 
 	def show
 
     @product = Product.find( params[:id] )
 
-    product_ords = @product.orders
-
     @cart = []
     @ordered = []
 
-    product_ords.each do | p |
-
+    @product.orders.each do | p |
     	if p.checkout_date
-
     		@ordered << p
-
     	else
-
-    		@cart	<< "add"
-
+    		@cart	<< :add
     	end
-
     end
 
 
