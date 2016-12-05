@@ -16,8 +16,7 @@
 		<thead>
 				<tr>
 					<th class="col-xs-2">Product</th>
-					<th class="col-xs-4">Description</th>
-					<th class="col-xs-2">Category</th>
+					<th class="col-xs-4">Category</th>
 					<th class="col-xs-4">Action</th>
 				</tr>
 			</thead>
@@ -26,7 +25,7 @@
 
 					<tr>
 						<td class="col-xs-2"><%= p.name %></td>
-						<td class="col-xs-4"><%= p.description %></td>
+
 						<td class="col-xs-2">
 
 							<%  @categories.each do |c| %>
@@ -38,7 +37,7 @@
 
 						<td class="col-xs-4">
 							<%= link_to "Show", product_path( p ) %>
-							<%= link_to "Edit" %>
+							<%= link_to "Edit", edit_product_path( p ) %>
 							<%= link_to "Delete", product_path( p ), method: :delete, data: {confirm: "Really delete the category?"} %>
 						</td>
 
