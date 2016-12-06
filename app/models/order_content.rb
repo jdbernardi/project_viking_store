@@ -4,9 +4,12 @@ class OrderContent < ApplicationRecord
 	belongs_to :product
 
 
-	def revenue
+  def revenue
+
 
 		quantity * product.price
 
 	end
+
+
 end
