@@ -19,4 +19,18 @@ module UsersHelper
 
 	end
 
+	def credit_card_verify( user, action )
+
+		if user.credit_cards.first
+
+			return user.credit_cards."#{action}"
+
+		end
+
+		return 'No card on file'
+
+	end
+
 end
+
+
