@@ -8,33 +8,66 @@
 
 
         <div class="col-xs-7 col-xs-offset-1 admin-view">
-        </div>
+
 
 			<%= render :partial => '/layouts/notice' %>
 
-				<h2>Categories</h2>
+				<h2>Users</h2>
 				<div>
-					<%= link_to "New Category", new_category_path, :class => "btn btn-primary" %><br /><br />
+					<%= link_to "New User", new_user_path, :class => "btn btn-primary" %><br /><br />
 				</div>
 				<div class="table-responsive">
 					<table class="table">
 					<thead>
 							<tr>
-								<th class="col-xs-2">Category</th>
-								<th class="col-xs-6">Description</th>
-								<th class="col-xs-4">Action</th>
+								<th class="col-xs-1">ID</th>
+								<th class="col-xs-2">Name</th>
+								<th class="col-xs-2">Joined</th>
+								<th class="col-xs-2">City</th>
+								<th class="col-xs-1">State</th>
+								<th class="col-xs-1">Orders</th>
+								<th class="col-xs-2">Last Order Date</th>
+								<th class="col-xs-1">SHOW</th>
+								<th class="col-xs-1">EDIT</th>
+								<th class="col-xs-1">DELETE</th>
+
+
 							</tr>
 						</thead>
 						<tbody>
-							<% @categories.each do |c| %>
+							<% @users.each do | u | %>
 								<tr>
-									<td class="col-xs-2"><%= c.name %></td>
-									<td class="col-xs-6"><%= c.description %></td>
+									<td><%= u.id %></td>
+									<td><%= u.first_name %>&nbsp<%= u.last_name %></td>
+
+									<td>
+										<%= get_last_checkout( u ) %>
+									</td>
+
+									<td>
+										city
+									</td>
+
+									<td>
+										state
+									</td>
+
+									<td>
+										orders
+									</td>
+
+									<td>
+										last order
+									</td>
 
 									<td class="col-xs-4">
-										<%= link_to "Show", category_path( c ) %>
-										<%= link_to "Edit", edit_category_path( c ) %>
-										<%= link_to "Delete", category_path( c ), method: :delete, data: {confirm: "Really delete the category?"} %>
+										<%= link_to "Show", user_path( u ) %>
+									</td>
+									<td>
+										<%= link_to "Edit", edit_user_path( u ) %>
+									</td>
+									<td>
+										<%= link_to "Delete", user_path( u ), method: :delete, data: {confirm: "Really delete the user?"} %>
 									</td>
 
 								</tr>
@@ -43,6 +76,7 @@
 					</table>
 				</div>
 			</div>
+
 
 
       </div>
