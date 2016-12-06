@@ -1,0 +1,84 @@
+<div class="container">
+
+
+	<div class="row center">
+
+
+
+		<h1>User&nbsp<%= @user.id %>:&nbsp<%= @user.first_name %>&nbsp<%= @user.last_name %></h1>
+
+	</div>
+
+	<table class="table">
+
+		<thead>
+			<th class="center"  colspan = "2">Demographic Information</th>
+		</thead>
+		<tr>
+			<td class = "col-xs-4"> First Name:</td>
+			<td class = "col-xs-4"><%= @user.first_name %></td>
+		</tr>
+
+		<tr>
+			<td class = "col-xs-4">Last Name:</td>
+			<td class = "col-xs-4"><%= @user.last_name %></td>
+		</tr>
+
+		<tr>
+			<td class = "col-xs-4">Email:</td>
+			<td class = "col-xs-4"><%= @user.email %></td>
+		</tr>
+
+		<tr>
+			<td class = "col-xs-4">Telephone:</td>
+			<td class = "col-xs-4">
+				<%=   %>
+			</td>
+		</tr>
+
+
+		<thead>
+			<th class="center"  colspan = "2">Credit Card Information</th>
+		</thead>
+		<tr>
+			<td class = "col-xs-4"> First Name:</td>
+			<td class = "col-xs-4"><%= @user.first_name %></td>
+		</tr>
+
+		<tr>
+			<td class = "col-xs-4">Last Name:</td>
+			<td class = "col-xs-4"><%= @user.last_name %></td>
+		</tr>
+
+		<tr>
+			<td class = "col-xs-4">Number:</td>
+			<td class = "col-xs-4"><%= @user.last_name %></td>
+		</tr>
+
+		<tr>
+			<td class = "col-xs-4">Expiration:</td>
+			<td class = "col-xs-4"><%= @user.email %></td>
+		</tr>
+
+		<tr>
+			<td class = "col-xs-4">CV2:</td>
+			<td class = "col-xs-4">
+				<%=   %>
+			</td>
+		</tr>
+
+
+	<tr>
+
+		<td colspan="2" ><%= link_to :Edit, edit_user_path( @user ) %></td>
+	</tr>
+	<tr>
+		<td colspan="2" >
+			<%= link_to "Delete", user_path( @user ), method: :delete, data: {confirm: "Really delete the category?"} %>
+		</td>
+	</tr>
+
+
+	</table>
+
+</div>
