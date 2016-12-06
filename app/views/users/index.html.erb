@@ -41,23 +41,23 @@
 									<td><%= u.first_name %>&nbsp<%= u.last_name %></td>
 
 									<td>
+										<%= u.created_at %>
+									</td>
+
+									<td>
+										<%= u.addresses.first.city.name %>
+									</td>
+
+									<td>
+										<%= u.addresses.first.state.name %>
+									</td>
+
+									<td>
+										<%= u.orders.count %>
+									</td>
+
+									<td>
 										<%= get_last_checkout( u ) %>
-									</td>
-
-									<td>
-										city
-									</td>
-
-									<td>
-										state
-									</td>
-
-									<td>
-										orders
-									</td>
-
-									<td>
-										last order
 									</td>
 
 									<td class="col-xs-4">
