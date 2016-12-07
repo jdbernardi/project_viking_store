@@ -14,6 +14,15 @@ Rails.application.routes.draw do
  		resources :categories
  		resources :products
  		resources :users
+
+ 		scope 'user' do
+
+ 			resources :addresses
+
+ 		end
+
  	end
+
+
 
 end
