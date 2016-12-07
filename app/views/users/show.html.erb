@@ -36,6 +36,28 @@
 			</td>
 		</tr>
 
+		<!-- ADDRESSES -->
+
+		<tr>
+			<td class = "col-xs-4">Default Billing Address:</td>
+			<td class = "col-xs-4">
+				<%= @user.addresses.first.street_address %>,
+				<%= @user.addresses.first.city.name %>,
+				<%= @user.addresses.first.state.name %>
+				<%= @user.addresses.first.zip_code %>
+			</td>
+		</tr>
+
+		<tr>
+			<td class = "col-xs-4">Default Shipping Address:</td>
+			<td class = "col-xs-4">
+				<%= @user.addresses.first.street_address %>,
+				<%= @user.addresses.first.city.name %>,
+				<%= @user.addresses.first.state.name %>
+				<%= @user.addresses.first.zip_code %>
+			</td>
+		</tr>
+
 
 		<thead>
 			<th class="center"  colspan = "2">Credit Card Information</th>
