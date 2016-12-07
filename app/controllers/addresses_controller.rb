@@ -4,10 +4,15 @@ class AddressesController < ApplicationController
 
 	def index
 
+		if params[:user]
+
+			@addresses = User.find( params[:user] ).addresses
+
+		else
 
 			@addresses = Address.all
 
-
+		end
 
 
 	end
