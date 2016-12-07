@@ -1,47 +1,55 @@
-<div class="row col-xs-8 col-xs-offset-2 table">
+<div class="container">
 
-<h2 class="center">
-	<%= params[:action].capitalize %>
-	<%= @user.first_name %>&nbsp<%= @user.last_name %>
-</h2>
+	<div class="row">
 
-<%= form_for @user do |f| %>
+		<div class="col-xs-6 col-xs-offset-2 table">
 
-	<%= f.label :id %>
-	<%= @user.id.nil? ? "N/A" : @user.id %><br />
+			<h2 class="center">
+				<%= params[:action].capitalize %>
+				<%= @user.first_name %>&nbsp<%= @user.last_name %>
+			</h2>
 
+			<%= form_for @user do |f| %>
 
-	<%= f.label :first_name %>
-
-	<% if !@user.errors[:first_name].empty? %>
-    <%= @user.errors[:first_name].join %>
-  <% end %>
-	<%= f.text_field :first_name, placeholder: 'Product Name', required: true %> <br />
-
-	<%= f.label :last_name %>
-
-	<% if !@user.errors[:last_name].empty? %>
-    <%= @user.errors[:last_name].join %>
-  <% end %>
-	<%= f.text_field :last_name, placeholder: 'Product Name', required: true %> <br />
+				<%= f.label :id %>
+				<%= @user.id.nil? ? "N/A" : @user.id %><br />
 
 
-	<%= f.label :default_billing_address %>
-	<% if !@user.errors[:address].empty? %>
-    <%= @user.errors[:address].join %>
-  <% end %>
-	<%= f.collection_select :billing_id, @user.addresses, :id, :street_address, required: true, required: true %><br />
+				<%= f.label :first_name %>
 
-	<%= f.label :default_shipping_address %>
-	<% if !@user.errors[:address].empty? %>
-    <%= @user.errors[:address].join %>
-  <% end %>
-	<%= f.collection_select :shipping_id, @user.addresses, :id, :street_address, required: true, required: true %><br />
+				<% if !@user.errors[:first_name].empty? %>
+			    <%= @user.errors[:first_name].join %>
+			  <% end %>
+				<%= f.text_field :first_name, placeholder: 'Product Name', required: true %> <br />
+
+				<%= f.label :last_name %>
+
+				<% if !@user.errors[:last_name].empty? %>
+			    <%= @user.errors[:last_name].join %>
+			  <% end %>
+				<%= f.text_field :last_name, placeholder: 'Product Name', required: true %> <br />
 
 
-	<%= f.submit :Add, class: "btn btn-primary" %><br />
-	<%= f.submit :Delete, method: 'delete' %>
+				<%= f.label :default_billing_address %>
+				<% if !@user.errors[:address].empty? %>
+			    <%= @user.errors[:address].join %>
+			  <% end %>
+				<%= f.collection_select :billing_id, @user.addresses, :id, :street_address, required: true, required: true %><br />
 
-<% end %>
+				<%= f.label :default_shipping_address %>
+				<% if !@user.errors[:address].empty? %>
+			    <%= @user.errors[:address].join %>
+			  <% end %>
+				<%= f.collection_select :shipping_id, @user.addresses, :id, :street_address, required: true, required: true %><br />
 
-</div>
+
+				<%= f.submit :Add, class: "btn btn-primary" %><br />
+				<%= f.submit :Delete, method: 'delete' %>
+
+			<% end %>
+
+		</div>
+
+	</div>
+
+</div> <!--container-->
