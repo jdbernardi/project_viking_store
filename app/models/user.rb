@@ -9,4 +9,6 @@ class User < ApplicationRecord
 
 	validates :email, length: { in: 1..64 }, presence: true
 
+	validates_format_of :email, :with => /@/, :message =>  "must have @ symbol"
+
 end
