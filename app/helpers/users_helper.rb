@@ -33,6 +33,16 @@ module UsersHelper
 
 	end
 
+	def order_total( order )
+
+		arr = []
+
+		order.order_contents.each { |d| arr << ( d.quantity * d.product.price ) }
+
+		return arr.inject(0) { |r,e| r+e }
+
+	end
+
 end
 
 

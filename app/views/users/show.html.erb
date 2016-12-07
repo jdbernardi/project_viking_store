@@ -154,32 +154,32 @@
 			<th class="col-xs-1">DELETE</th>
 		</tr>
 	</thead>
-						<tbody>
-							<% @user.orders.each do | o | %>
-								<tr>
-									<td><%= o.id %></td>
-									<td><%= o.created_at %></td>
-									<td>
-										<%=  %>
-									</td>
+		<tbody>
+			<% @user.orders.each do | o | %>
+				<tr>
+					<td><%= o.id %></td>
+					<td><%= o.created_at %></td>
+					<td>
+						<%=  order_total( o )%>
+					</td>
 
-									<td>
-										<%=  %>
-									</td>
+					<td>
+						<%=  %>
+					</td>
 
-									<td class="col-xs-4">
-										<%= link_to "Show", user_path( o ) %>
-									</td>
-									<td>
-										<%= link_to "Edit", edit_user_path( o ) %>
-									</td>
-									<td>
-										<%= link_to "Delete", user_path( o ), method: :delete, data: {confirm: "Really delete the user?"} %>
-									</td>
+					<td class="col-xs-4">
+						<%= link_to "Show", user_path( o ) %>
+					</td>
+					<td>
+						<%= link_to "Edit", edit_user_path( o ) %>
+					</td>
+					<td>
+						<%= link_to "Delete", user_path( o ), method: :delete, data: {confirm: "Really delete this user?"} %>
+					</td>
 
-								</tr>
-							<% end %>
-						</tbody>
-					</table>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
 
 </div>
