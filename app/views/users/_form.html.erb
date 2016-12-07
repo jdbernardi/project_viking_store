@@ -29,6 +29,13 @@
 			  <% end %>
 				<%= f.text_field :last_name, placeholder: 'Product Name', required: true %> <br />
 
+				<%= f.label :email %>
+
+				<% if !@user.errors[:email].empty? %>
+			    <%= @user.errors[:email].join %>
+			  <% end %>
+				<%= f.text_field :email, placeholder: 'email', required: true %> <br />
+
 
 				<%= f.label :default_billing_address %>
 				<% if !@user.errors[:address].empty? %>

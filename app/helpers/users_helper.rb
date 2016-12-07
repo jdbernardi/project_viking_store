@@ -1,5 +1,18 @@
 module UsersHelper
 
+	def user_params
+
+		params.require(:user).permit(:first_name, :last_name, :email )
+
+	end
+
+
+	def errors
+
+			flash.notice = "#{@user.errors.full_messages.join}"
+
+	end
+
 	def get_last_checkout( user )
 
 		# starting with last order go through each entry

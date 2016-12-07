@@ -43,20 +43,28 @@
 		<tr>
 			<td class = "col-xs-4">Default Billing Address:</td>
 			<td class = "col-xs-4">
-				<%= @user.addresses.first.street_address %>,
-				<%= @user.addresses.first.city.name %>,
-				<%= @user.addresses.first.state.name %>
-				<%= @user.addresses.first.zip_code %>
+				<% if @user.addresses.empty? %>
+					<%= "No address on file" %>
+				<% else %>
+				  <%= @user.addresses.first.street_address %>,
+				  <%= @user.addresses.first.city.name %>,
+				  <%= @user.addresses.first.state.name %>
+				  <%= @user.addresses.first.zip_code %>
+			  <% end %>
 			</td>
 		</tr>
 
 		<tr>
 			<td class = "col-xs-4">Default Shipping Address:</td>
 			<td class = "col-xs-4">
-				<%= @user.addresses.first.street_address %>,
-				<%= @user.addresses.first.city.name %>,
-				<%= @user.addresses.first.state.name %>
-				<%= @user.addresses.first.zip_code %>
+				<% if @user.addresses.empty? %>
+					<%= "No address on file" %>
+				<% else %>
+				  <%= @user.addresses.first.street_address %>,
+				  <%= @user.addresses.first.city.name %>,
+				  <%= @user.addresses.first.state.name %>
+				  <%= @user.addresses.first.zip_code %>
+			  <% end %>
 			</td>
 		</tr>
 
