@@ -51,19 +51,20 @@
 		</tr>
 
 		<tr>
+
 			<td class = "col-xs-4">Number:</td>
-			<td class = "col-xs-4"><%= credit_card_verify( @user, "number" ) %></td>
+			<td class = "col-xs-4"><%= @card ? @card.card_number : "No card on file" %></td>
 		</tr>
 
 		<tr>
 			<td class = "col-xs-4">Expiration:</td>
-			<td class = "col-xs-4"><%=  %></td>
+			<td class = "col-xs-4"><%= @card ? @card.exp_year : "No card on file" %></td>
 		</tr>
 
 		<tr>
-			<td class = "col-xs-4">CV2:</td>
+			<td class = "col-xs-4">CCV:</td>
 			<td class = "col-xs-4">
-				<%=  %>
+				<%= @card ? @card.ccv : "No card on file" %>
 			</td>
 		</tr>
 
