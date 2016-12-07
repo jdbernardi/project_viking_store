@@ -14,7 +14,7 @@
 
 				<h2 class="center">Addresses</h2>
 				<div>
-					<p>Create new addresses from within&nbsp<%= link_to "user", new_user_path %>&nbspprofiles</p><br /><br />
+					<p class="center">Create new addresses from within&nbsp<%= link_to "user", new_user_path %>&nbspprofiles</p><br /><br />
 				</div>
 				<div class="table-responsive">
 					<table class="table">
@@ -38,7 +38,7 @@
 							<% @addresses.each do | address | %>
 								<tr>
 									<td><%= address.id %></td>
-									<td><%= address.user.first_name %></td>
+									<td><%= link_to address.user.first_name,  user_path( address.user ) %></td>
 									<td>
 										<%= address.city.name %>
 									</td>

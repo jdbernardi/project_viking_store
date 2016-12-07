@@ -4,8 +4,18 @@ class AddressesController < ApplicationController
 
 	def index
 
-		@addresses = Address.all
 
+			@addresses = Address.all
+
+
+
+
+	end
+
+	def show
+
+
+		@user = User.find( params[:id])
 
 	end
 
