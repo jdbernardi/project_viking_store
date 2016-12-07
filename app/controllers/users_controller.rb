@@ -32,7 +32,7 @@ class UsersController < ApplicationController
 
 		if @user.save
 			flash.notice = "User #{@user.first_name} added!"
-			redirect_to users_path
+			redirect_to user_path( @user )
 		else
 			flash.notice = errors
 			redirect_to new_user_path
@@ -48,7 +48,7 @@ class UsersController < ApplicationController
 
 			flash.notice = "User #{@user.first_name} updated!"
 
-			redirect_to users_path
+			redirect_to user_path
 
 		else
 
