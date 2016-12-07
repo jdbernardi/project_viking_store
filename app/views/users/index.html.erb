@@ -45,11 +45,11 @@
 									</td>
 
 									<td>
-										<%= u.addresses.first.city.name %>
+										<%= u.addresses.nil? ? "N/A" : u.addresses.first.city.name %>
 									</td>
 
 									<td>
-										<%= u.addresses.first.state.name %>
+										<%= u.addresses.nil? ? "N/A" : u.addresses.first.state.name %>
 									</td>
 
 									<td>
