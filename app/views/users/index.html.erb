@@ -49,7 +49,7 @@
 									</td>
 
 									<td>
-										<%= u.addresses.empty? ? "N/A" : u.addresses.first.state.name %>
+										<%= u.addresses.empty? ? "N/A" : to_state_abbrev(u.addresses.first.state.name) %>
 									</td>
 
 									<td>
