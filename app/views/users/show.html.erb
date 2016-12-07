@@ -9,6 +9,8 @@
 
 	</div>
 
+	<!-- FIRST TABLE - DEMOGRAPHIC INFO FOR USER -->
+
 	<table class="table">
 
 		<thead>
@@ -58,7 +60,21 @@
 			</td>
 		</tr>
 
+		<!-- DEMOGRAPHIC LINKS -->
+		<tr>
+			<td class="row" colspan="2">
+					<%= link_to "Edit #{@user.first_name}'s Information" %><br />
+					<%= link_to "Delete #{@user.first_name}" %><br />
+					<%= link_to "View Saved Addresses" %><br />
+					<%= link_to "View Unplaced Order (Cart)" %>
+			</td>
+		</tr>
 
+</table>
+
+
+<table class="table">
+		<!-- CREDIT CARD INFORMATION -->
 		<thead>
 			<th class="center"  colspan = "2">Credit Card Information</th>
 		</thead>
@@ -90,9 +106,30 @@
 			</td>
 		</tr>
 
+		<tr>
+			<td class="row" colspan="2">
+					<%= link_to "Remove Card" %>
+			</td>
+		</tr>
+
+</table>
+
+<table class="table">
+<thead>
+	<th class="center" colspan="2">
+		Admin Actions for <%= @user.first_name %>
+	</th>
+</thead>
 
 	<tr>
+		<td>
+			<%= link_to "Create Order", :class => "btn" %><br />
+			<%= link_to "Create Address", :class => "btn" %>
+		</td>
+	</tr>
 
+<!--
+	<tr>
 		<td colspan="2" ><%= link_to :Edit, edit_user_path( @user ) %></td>
 	</tr>
 	<tr>
@@ -100,8 +137,49 @@
 			<%= link_to "Delete", user_path( @user ), method: :delete, data: {confirm: "Really delete the category?"} %>
 		</td>
 	</tr>
+-->
+</table>
 
 
-	</table>
+<table class="table">
+		<!-- ORDER HISTORY -->
+	<thead>
+		<tr>
+			<th class="col-xs-1">ID</th>
+			<th class="col-xs-3">Order Date</th>
+			<th class="col-xs-2">Order Value</th>
+			<th class="col-xs-3">Status</th>
+			<th class="col-xs-1">SHOW</th>
+			<th class="col-xs-1">EDIT</th>
+			<th class="col-xs-1">DELETE</th>
+		</tr>
+	</thead>
+						<tbody>
+							<% @user.orders.each do | o | %>
+								<tr>
+									<td><%= o.id %></td>
+									<td><%= o.created_at %></td>
+									<td>
+										<%=  %>
+									</td>
+
+									<td>
+										<%=  %>
+									</td>
+
+									<td class="col-xs-4">
+										<%= link_to "Show", user_path( o ) %>
+									</td>
+									<td>
+										<%= link_to "Edit", edit_user_path( o ) %>
+									</td>
+									<td>
+										<%= link_to "Delete", user_path( o ), method: :delete, data: {confirm: "Really delete the user?"} %>
+									</td>
+
+								</tr>
+							<% end %>
+						</tbody>
+					</table>
 
 </div>
