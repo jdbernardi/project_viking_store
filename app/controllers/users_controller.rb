@@ -54,7 +54,7 @@ class UsersController < ApplicationController
 
 			flash.notice = errors
 
-			redirect_to edit_user_path(@user)
+			redirect_to edit_user_path( @user )
 
 		end
 
@@ -64,6 +64,19 @@ class UsersController < ApplicationController
 	def edit
 
 		@user = User.find( params[ :id ] )
+
+	end
+
+
+	def destroy
+
+		@user = User.find( params[ :id ] )
+
+		@user.destroy
+
+		flash.notice = "#{@user.first_name} deleted!"
+
+		redirect_to users_path
 
 	end
 
