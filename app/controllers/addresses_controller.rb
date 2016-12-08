@@ -23,6 +23,8 @@ class AddressesController < ApplicationController
 
 		user_id = Address.find(params[:id]).user_id
 
+		@address = Address.find(params[:id])
+
 		@user = User.find( user_id )
 
 	end

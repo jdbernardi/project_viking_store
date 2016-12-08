@@ -22,14 +22,14 @@
 				<% if !@user.errors[:first_name].empty? %>
 			    <%= @user.errors[:first_name].join %>
 			  <% end %>
-				<%= f.text_field :first_name, placeholder: 'Product Name', required: true %> <br />
+				<%= f.text_field :first_name, placeholder: 'First name', required: true %> <br />
 
 				<%= f.label :last_name %>
 
 				<% if !@user.errors[:last_name].empty? %>
 			    <%= @user.errors[:last_name].join %>
 			  <% end %>
-				<%= f.text_field :last_name, placeholder: 'Product Name', required: true %> <br />
+				<%= f.text_field :last_name, placeholder: 'Last name', required: true %> <br />
 
 				<%= f.label :email %>
 
@@ -44,7 +44,7 @@
 			    <%= @user.errors[:address].join %>
 			  <% end %>
 
-
+<!--TODO: switch to text_field if no address data-->
 					<%= f.collection_select :billing_id, @user.addresses, :id, :street_address, required: true, required: true %><br />
 
 

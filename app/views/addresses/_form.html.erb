@@ -16,14 +16,31 @@
 			<td class = "col-xs-4"><%= link_to "#{@user.first_name} #{@user.last_name} (click to view user)", user_path( @user ) %></td>
 		</tr>
 
+<!--TODO: accessing the address from user -->
 
 
-		<% @user.addresses.first do |a| %>
+		<%= form_for(@address) do |add| %>
 
-		<tr><td><%= a.street_address %></td><br /></tr>
-		<tr><td><%= a.city.name %></td><br /></tr>
-		<tr><td><%= a.state.name %></td><br /></tr>
-		<tr><td><%= a.zip_code %></td><br /></tr>
+		<tr>
+			<td><%= add.label :street_address %></td>
+
+			<td><%= add.text_field :street_address %></td>
+		</tr>
+		<tr>
+			<td><%= add.label :city %></td>
+
+			<td><%= add.text_field :city %></td>
+		</tr>
+		<tr>
+			<td><%= add.label :state %></td>
+
+			<td><%= add.text_field :state %></td>
+		</tr>
+		<tr>
+			<td><%= add.label :zip_code %></td>
+
+			<td><%= add.text_field :zip_code %></td>
+		</tr>
 
 		<% end %>
 
