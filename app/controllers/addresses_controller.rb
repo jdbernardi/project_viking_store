@@ -19,8 +19,9 @@ class AddressesController < ApplicationController
 
 	def show
 
+		user_id = Address.find(params[:id]).user_id
 
-		@user = User.find( params[:id])
+		@user = User.find( user_id )
 
 	end
 
