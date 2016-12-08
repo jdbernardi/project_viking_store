@@ -2,6 +2,8 @@ class AddressesController < ApplicationController
 
 	include AddressesHelper
 
+
+
 	def index
 
 		if params[:user]

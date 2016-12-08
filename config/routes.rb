@@ -24,5 +24,9 @@ Rails.application.routes.draw do
  	end
 
 
+ 	map.resources :users do | user |
+ 		user.resouces :addresses
+ 	end
+
 
 end
