@@ -25,7 +25,20 @@ class AddressesController < ApplicationController
 
 		@address = Address.find(params[:id])
 
+		@url = '/admin/user/addresses/'
+
 		@user = User.find( user_id )
+
+
+	end
+
+
+	def update
+
+		@address = Address.find( params[:id] )
+		city = City.create_or_find_by!(name: params[:city])
+		state = State.create_or_find_by!(name: params[:state])
+		@address.update( city_id: city.id, state_id: state.id )
 
 	end
 

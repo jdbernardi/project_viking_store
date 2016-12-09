@@ -19,32 +19,27 @@
 <!--TODO: accessing the address from user -->
 
 
-		<%= form_for(@address) do |add| %>
+<tr class="panel-body">
+      <%= form_tag(@url) do %>
+          <tr class="form-group">
+            <td><%= label_tag 'Street:' %></td>
+          <td><%= text_field_tag 'street_address', @address.street_address, class: "form-control" %></td>
+          </tr>
+          <tr class="form-group">
+            <td><%= label_tag 'City: ' %></td>
+          <td><%= text_field_tag 'city', @address.city.name, class: "form-control" %></td>
+          </tr>
+          <td><%= text_field_tag 'state', @address.state.name, class: "form-control" %></td>
+          <td><%= text_field_tag 'zip', @address.zip_code, class: "form-control" %></td>
+          <tr>
+          <div class="form-group">
+            <%=  hidden_field_tag 'id', @address.id %>
+          </div>
+          <td><%= submit_tag 'update', class: "btn btn-primary", data: { confirm: "Are you sure you want to invite this person with this Role?" } %></td>
+        </tr>
+      <% end %>
+ </tr>
 
-		<tr>
-			<td><%= add.label :street_address %></td>
-
-			<td><%= add.text_field :street_address %></td>
-		</tr>
-		<tr>
-			<td><%= add.label :city %></td>
-
-			<td><%= add.text_field :city %></td>
-		</tr>
-		<tr>
-			<td><%= add.label :state %></td>
-
-			<td><%= add.text_field :state %></td>
-		</tr>
-		<tr>
-			<td><%= add.label :zip_code %></td>
-
-			<td><%= add.text_field :zip_code %></td>
-		</tr>
-
-		<% end %>
-
-	  </tr>
 
 		<tr>
 			<td class = "col-xs-4">Street:</td>
