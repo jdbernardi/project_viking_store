@@ -16,77 +16,25 @@
 			<td class = "col-xs-4"><%= link_to "#{@user.first_name} #{@user.last_name} (click to view user)", user_path( @user ) %></td>
 		</tr>
 
-<!--TODO: accessing the address from user -->
-
 
 <tr class="panel-body">
-      <%= form_tag(@url) do %>
-          <tr class="form-group">
-            <td><%= label_tag 'Street:' %></td>
-          <td><%= text_field_tag 'street_address', @address.street_address, class: "form-control" %></td>
-          </tr>
-          <tr class="form-group">
-            <td><%= label_tag 'City: ' %></td>
-          <td><%= text_field_tag 'city', @address.city.name, class: "form-control" %></td>
-          </tr>
-          <td><%= text_field_tag 'state', @address.state.name, class: "form-control" %></td>
-          <td><%= text_field_tag 'zip', @address.zip_code, class: "form-control" %></td>
-          <tr>
-          <div class="form-group">
-            <%=  hidden_field_tag 'id', @address.id %>
-          </div>
-          <td><%= submit_tag 'update', class: "btn btn-primary", data: { confirm: "Are you sure you want to invite this person with this Role?" } %></td>
-        </tr>
-      <% end %>
+            <% if params[:action] == 'show' %>
+
+            	<%= render partial: 'show' %>
+
+            <% elsif params[:action] == 'edit' %>
+
+            	<%= render partial: 'edit' %>
+
+            <% end %>
+
+
  </tr>
-
-
-		<tr>
-			<td class = "col-xs-4">Street:</td>
-			<td class = "col-xs-4"><%= @user.addresses %></td>
-		</tr>
-
-		<tr>
-			<td class = "col-xs-4">Telephone:</td>
-			<td class = "col-xs-4">
-				<%=   %>
-			</td>
-		</tr>
-
-		<!-- ADDRESSES -->
-
-		<tr>
-			<td class = "col-xs-4">Default Billing Address:</td>
-			<td class = "col-xs-4">
-				<% if @user.addresses.empty? %>
-					<%= "No address on file" %>
-				<% else %>
-				  <%= @user.addresses.first.street_address %>,
-				  <%= @user.addresses.first.city.name %>,
-				  <%= @user.addresses.first.state.name %>
-				  <%= @user.addresses.first.zip_code %>
-			  <% end %>
-			</td>
-		</tr>
-
-		<tr>
-			<td class = "col-xs-4">Default Shipping Address:</td>
-			<td class = "col-xs-4">
-				<% if @user.addresses.empty? %>
-					<%= "No address on file" %>
-				<% else %>
-				  <%= @user.addresses.first.street_address %>,
-				  <%= @user.addresses.first.city.name %>,
-				  <%= @user.addresses.first.state.name %>
-				  <%= @user.addresses.first.zip_code %>
-			  <% end %>
-			</td>
-		</tr>
 
 		<!-- DEMOGRAPHIC LINKS -->
 		<tr>
 			<td class="row" colspan="2">
-					<%= link_to "Edit #{@user.first_name}'s Address", edit_address_path( @user ) %><br />
+					<%= link_to "Edit #{@user.first_name}'s Address", edit_address_path( @address ) %><br />
 					<%= link_to "Delete #{@user.first_name}'s Address", address_path( @user ), method: :delete, data: {confirm: "Really delete this User?"} %><br />
 					<%= link_to "View Saved Addresses", addresses_path( :user => @user.id ), :action => 'index' %><br />
 			</td>

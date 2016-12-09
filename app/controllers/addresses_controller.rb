@@ -30,6 +30,8 @@ class AddressesController < ApplicationController
 		@user = User.find( user_id )
 
 
+
+
 	end
 
 
@@ -44,7 +46,11 @@ class AddressesController < ApplicationController
 
 	def edit
 
-		@user = User.find( params[:id] )
+		@address = Address.find( params[:id] )
+		user_id = Address.find( params[:id] ).user_id
+		@user = User.find( user_id )
+
+
 
 	end
 
