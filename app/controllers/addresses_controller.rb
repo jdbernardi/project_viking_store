@@ -25,7 +25,7 @@ class AddressesController < ApplicationController
 
 		@address = Address.find(params[:id])
 
-		@url = '/admin/user/addresses/'
+		@url = "/admin/user/addresses/"
 
 		@user = User.find( user_id )
 
@@ -40,9 +40,25 @@ class AddressesController < ApplicationController
 		@address = Address.find( params[:id] )
 		city = City.create_or_find_by!(name: params[:city])
 		state = State.create_or_find_by!(name: params[:state])
-		@address.update( city_id: city.id, state_id: state.id )
+
+ 		if @address.update( city_id: city.id, state_id: state.id )
+
+ 			flash.notice = "Address updated!"
+
+ 			redirect_to addresses_path
+
+ 		else
+
+ 			flash.notice = errors
+ 			redirect_to edit_address_path( @address )
+
+ 		end
+
+
 
 	end
+
+
 
 	def edit
 
