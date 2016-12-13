@@ -8,6 +8,42 @@
 
 	</div>
 
-	<%= render partial: 'form' %>
+
+	<!-- FIRST TABLE - DEMOGRAPHIC INFO FOR USER -->
+
+	<table class="table">
+
+		<thead>
+			<th class="center"  colspan = "2"><%= @user.first_name %>'s Address</th>
+		</thead>
+		<tr>
+			<td class = "col-xs-4"> Owner ID:</td>
+			<td class = "col-xs-4"><%= @user.id %></td>
+		</tr>
+
+		<tr>
+			<td class = "col-xs-4">Name:</td>
+			<td class = "col-xs-4"><%= link_to "#{@user.first_name} #{@user.last_name} (click to view user)", user_path( @user ) %></td>
+		</tr>
+
+
+<tr class="panel-body">
+
+
+            	<%= render partial: 'new' %>
+
+
+
+
+ </tr>
+
+		<!-- DEMOGRAPHIC LINKS -->
+
+
+</table>
+
+
+
+
 
 </div>

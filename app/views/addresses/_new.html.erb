@@ -2,25 +2,23 @@
   <%= form_tag(@url) do %>
     <tr class="form-group">
       <td><%= label_tag 'Street:' %></td>
-      <td><%= text_field_tag 'street_address', @address.street_address, class: "form-control" %></td>
+      <td><%= text_field_tag 'street_address' %></td>
     </tr>
 		<tr class="form-group">
 			<td><%= label_tag 'City: ' %></td>
-			<td><%= text_field_tag 'city', @address.city.name, class: "form-control" %></td>
+			<td><%= text_field_tag 'city' %></td>
           </tr>
           <tr>
             <td><%= label_tag 'State: ' %></td>
-            <td><%= text_field_tag 'state', to_state_abbrev(@address.state.name), class: "form-control" %></td>
+            <td><%= text_field_tag 'state' %></td>
           </tr>
           <tr>
           <td><%= label_tag 'Zip: ' %></td>
-          <td><%= text_field_tag 'zip', @address.zip_code, class: "form-control" %></td>
+          <td><%= text_field_tag 'zip' %></td>
           </tr>
 
           <tr>
-          <div class="form-group">
-            <%=  hidden_field_tag 'id', @address.id %>
-          </div>
-          <td><%= submit_tag 'update', class: "btn btn-primary", data: { confirm: "Are you sure you want to invite this person with this Role?" } %></td>
+
+          <td><%= submit_tag 'update', class: "btn btn-primary", data: { confirm: "Are you sure you want to add this address?" }, method: 'patch' %></td>
         </tr>
 <% end %>

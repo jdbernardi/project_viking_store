@@ -23,7 +23,7 @@ class AddressesController < ApplicationController
 
 	def new
 
-		@user = User.find(params[:format])
+		@user = User.find(params[:user])
 
 	end
 
@@ -65,6 +65,11 @@ class AddressesController < ApplicationController
 
 	end
 
+
+	def create
+
+
+	end
 
 
 	def edit
