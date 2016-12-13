@@ -44,11 +44,7 @@
 			    <%= @user.errors[:address].join %>
 			  <% end %>
 
-<!--TODO: switch to text_field if no address data-->
 					<%= f.collection_select :billing_id, @user.addresses, :id, :street_address, required: true, required: true %><br />
-
-
-
 
 					<%= f.label :default_shipping_address %>
 					<% if !@user.errors[:address].empty? %>
