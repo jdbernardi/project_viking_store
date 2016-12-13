@@ -9,6 +9,7 @@ class AddressesController < ApplicationController
 		if params[:user]
 
 			@addresses = User.find( params[:user] ).addresses
+			@user = User.find( params[:user])
 
 		else
 
