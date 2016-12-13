@@ -24,7 +24,7 @@
 					<% else %>
 
 						<h2 class="center"><%= @user.first_name %>&nbspAddresses</h2>
-							<button class = "btn btn-lg">New Address</button>
+							<%= link_to :NewAddress, new_address_path(@user), class: "btn btn-lg" %>
 
 					<% end %>
 
