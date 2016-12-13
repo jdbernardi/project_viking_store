@@ -9,7 +9,7 @@ class AddressesController < ApplicationController
 		if params[:user]
 
 			@addresses = User.find( params[:user] ).addresses
-			@user = User.find( params[:user])
+			@user = User.find( params[:user] )
 
 		else
 
@@ -20,6 +20,15 @@ class AddressesController < ApplicationController
 
 	end
 
+
+	def new
+
+		@user = User.find(params[:format])
+
+	end
+
+
+
 	def show
 
 		user_id = Address.find(params[:id]).user_id
@@ -29,9 +38,6 @@ class AddressesController < ApplicationController
 		@url = "/admin/user/addresses/"
 
 		@user = User.find( user_id )
-
-
-
 
 	end
 
