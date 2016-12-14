@@ -24,6 +24,9 @@ class AddressesController < ApplicationController
 	def new
 
 		@user = User.find(params[:user])
+		addresses = Address.where(user_id: @user.id)
+		user_id = addresses.first.user_id
+
 
 	end
 
@@ -68,7 +71,9 @@ class AddressesController < ApplicationController
 
 	def create
 
-		
+		@address = Address.new( address_params )
+
+		binding.pry
 
 	end
 

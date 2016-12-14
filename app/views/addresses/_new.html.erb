@@ -1,9 +1,20 @@
+<form action='/admin/user/addresses/new' method="post">
 
-  <%= form_tag(@url) do %>
+  <input type='text' name="user[first_name]">
+
+
+  <input type="submit" value="Submit">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+</form>
+
+
+
+  <%= form_tag('/admin/user/addresses/new', :method => 'post') do %>
     <tr class="form-group">
       <td><%= label_tag 'Street:' %></td>
       <td><%= text_field_tag 'street_address' %></td>
     </tr>
+
 		<tr class="form-group">
 			<td><%= label_tag 'City: ' %></td>
 			<td><%= text_field_tag 'city' %></td>
@@ -14,11 +25,15 @@
           </tr>
           <tr>
           <td><%= label_tag 'Zip: ' %></td>
-          <td><%= text_field_tag 'zip' %></td>
+          <td><%= text_field_tag 'zip_code' %></td>
           </tr>
 
-          <tr>
+        <tr class='form_group'>
 
-          <td><%= submit_tag 'update', class: "btn btn-primary", data: { confirm: "Are you sure you want to add this address?" }, method: 'patch' %></td>
+          <td><%= submit_tag 'update', class: "btn btn-primary form-group", data: { confirm: "Are you sure you want to add this address?" } %></td>
+          <div>
+            <%=  hidden_field_tag 'id', @user.id %>
+          </div>
         </tr>
+
 <% end %>
