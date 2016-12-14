@@ -1,7 +1,7 @@
 class AddressesController < ApplicationController
 
 	include AddressesHelper
-
+	include ApplicationHelper
 
 
 	def index
@@ -47,9 +47,11 @@ class AddressesController < ApplicationController
 
 	def update
 
+
 		@address = Address.find( params[:id] )
-		city = City.create_or_find_by!(name: params[:city])
-		state = State.create_or_find_by!(name: params[:state])
+		city = City.find_or_create_by(name: params[:city])
+
+		state = State.find_or_create_by(name: params[:state])
 
  		if @address.update( city_id: city.id, state_id: state.id )
 
@@ -83,7 +85,7 @@ class AddressesController < ApplicationController
 		@address = Address.find( params[:id] )
 		user_id = Address.find( params[:id] ).user_id
 		@user = User.find( user_id )
-
+		@url = "/admin/user/addresses/#{@address.id}"
 
 
 	end

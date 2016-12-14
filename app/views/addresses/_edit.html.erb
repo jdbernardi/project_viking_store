@@ -1,5 +1,13 @@
+<%= form_tag("/admin/user/addresses/update#{@user.id}", method: "patch") do %>
 
-  <%= form_tag(@url) do %>
+<%= label_tag :user, "ID" %>
+<%= text_field_tag :user, "#{@user.id}" %>
+<%=submit_tag "update" %>
+<% end %>
+
+<h1> EDIT </h1>
+
+  <%= form_tag(@url, method: 'patch') do %>
     <tr class="form-group">
       <td><%= label_tag 'Street:' %></td>
       <td><%= text_field_tag 'street_address', @address.street_address, class: "form-control" %></td>
@@ -21,6 +29,6 @@
           <div class="form-group">
             <%=  hidden_field_tag 'id', @address.id %>
           </div>
-          <td><%= submit_tag 'update', class: "btn btn-primary form_group", data: { confirm: "Are you sure you want to update?" } %></td>
+          <td><%= submit_tag 'update', class: "btn btn-primary form_group", data: { confirm: "Are you sure you want to update?"}, :address_id => @address.id %></td>
         </tr>
 <% end %>

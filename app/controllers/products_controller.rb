@@ -44,7 +44,7 @@ class ProductsController < ApplicationController
 	end
 
     def create
-binding.pry
+
         @product = Product.new( products_params )
 
         generate_sku
