@@ -10,35 +10,71 @@
 
 	<h1 class="center">Order&nbsp<%= @order.id %></h1>
 
-	<table class="table col-xs-6 center">
+	<table class="table col-xs-6">
 
 		<thead>
 			<th class="center"  colspan = "2">Logistical Information</th>
 		</thead>
+		<tr>
+			<td colspan="2"><h3>Basic Information<h3></td>
+		</tr>
 
-	<!-- ORDER TABLE -->
+<!-- ORDER TABLE -->
 
-	<%= form_tag @order do %>
-	<tr class="form-group">
-		<td><%= label_tag 'Customer ID:' %></td>
-		<td><%= label_tag 'user_id', @order.user_id %></td>
-	</tr>
-	<tr class="form-group">
-		<td><%= label_tag 'Customer:' %></td>
-		<td><%= label_tag 'user[:name]', @order.user.first_name %></td>
-	</tr>
-	<tr class="form-group">
-		<td><%= label_tag 'Date Placed:' %></td>
-		<td><%= label_tag :checkout_date, @order.checkout_date %></td>
-	</tr>
-	<tr class="form-group">
-		<td><%= label_tag '# Products' %></td>
-		<td><%= label_tag 'user_id', num_products(@order.order_contents) %></td>
-	</tr>
-	<tr class="form-group">
-		<td><%= label_tag 'Order Value' %></td>
-		<td><%= label_tag 'user_id', revenue(@order) %></td>
-	</tr>
+		<%= form_tag @order do %>
+		<tr class="form-group">
+			<td><%= label_tag 'Customer ID:' %></td>
+			<td><%= label_tag 'user_id', @order.user_id %></td>
+		</tr>
+		<tr class="form-group">
+			<td><%= label_tag 'Customer:' %></td>
+			<td><%= label_tag 'user[:name]', @order.user.first_name %></td>
+		</tr>
+		<tr class="form-group">
+			<td><%= label_tag 'Date Placed:' %></td>
+			<td><%= label_tag :checkout_date, @order.checkout_date %></td>
+		</tr>
+		<tr class="form-group">
+			<td><%= label_tag '# Products' %></td>
+			<td><%= label_tag 'user_id', num_products(@order.order_contents) %></td>
+		</tr>
+		<tr class="form-group">
+			<td><%= label_tag 'Order Value' %></td>
+			<td><%= label_tag 'user_id', revenue(@order) %></td>
+		</tr>
+
+		<tr>
+			<td colspan="2"><h3>Order Status<h3></td>
+		</tr>
+
+		<% if @order.checkout_date.nil? %>
+			<tr>
+				<td colspan="2"><h3 class="unplaced">UNPLACED</h3></td>
+			</tr>
+		<% else %>
+			<tr>
+				<td colspan="2"><h3 class="placed">PLACED</h3></td>
+			</tr>
+		<% end %>
+
+	<!--SHIPPNG AND BILLING -->
+
+		<tr class="form-group">
+			<td><%= label_tag 'Customer ID:' %></td>
+			<td><%= label_tag 'user_id', @order.user_id %></td>
+		</tr>
+		<tr class="form-group">
+			<td><%= label_tag 'Customer:' %></td>
+			<td><%= label_tag 'user[:name]', @order.user.first_name %></td>
+		</tr>
+		<tr class="form-group">
+			<td><%= label_tag 'Date Placed:' %></td>
+			<td><%= label_tag :checkout_date, @order.checkout_date %></td>
+		</tr>
+
+
+
+
 	<% end %>
 
 

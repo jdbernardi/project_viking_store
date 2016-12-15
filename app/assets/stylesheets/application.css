@@ -13,3 +13,23 @@
  *= require_tree .
  *= require_self
  */
+
+
+.placed {
+
+	color: blue;
+
+}
+
+
+.unplaced {
+
+	color: red;
+
+}
+
+.left {
+
+	text-align: left;
+
+}
