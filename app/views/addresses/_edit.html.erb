@@ -18,7 +18,7 @@
           </tr>
           <tr>
             <td><%= label_tag 'State: ' %></td>
-            <td><%= text_field_tag 'state', to_state_abbrev(@address.state.name), class: "form-control" %></td>
+            <td><%= collection_select :state, :id, State.all, :id, :name %></td>
           </tr>
           <tr>
           <td><%= label_tag 'Zip: ' %></td>

@@ -51,7 +51,7 @@ class AddressesController < ApplicationController
 		@address = Address.find( params[:id] )
 		city = City.find_or_create_by(name: params[:city])
 
-		state = State.find_or_create_by(name: params[:state])
+		state = State.find(params[:state][:id])
 
 		zip = params[:zip]
 
