@@ -28,6 +28,7 @@ class AddressesController < ApplicationController
 		user_id = addresses.first.user_id
 
 
+
 	end
 
 
