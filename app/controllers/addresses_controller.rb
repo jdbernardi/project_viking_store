@@ -52,7 +52,7 @@ class AddressesController < ApplicationController
 		city = City.find_or_create_by(name: params[:city])
 
 		state = State.find_or_create_by(name: params[:state])
-binding.pry
+
 		zip = params[:zip]
 
  		if @address.update( city_id: city.id, state_id: state.id,
