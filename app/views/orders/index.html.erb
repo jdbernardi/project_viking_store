@@ -55,25 +55,26 @@
 						<tbody>
 							<% @orders.each do | order | %>
 								<tr>
-									<td><%= address.id %></td>
-									<td><%= link_to address.user.first_name,  user_path( address.user ) %></td>
+									<td><%= order.id %></td>
+									<td><%= link_to order.user.id,  user_path( order.user_id ) %></td>
 									<td>
-										<%= address.street_address %>
+										<%= order.user.first_name %>
 									</td>
 									<td>
-										<%= address.city.name %>
+
+										<%= order.address.city.name %>
 									</td>
 									<td>
-										<%= to_state_abbrev(address.state.name) %>
+										<%=  to_state_abbrev( order.address.state.name ) %>
+									</td>
+									<td>
+										<%=  revenue( order ) %>
+									</td>
+									<td>
+										<%=  order.checkout_date %>
 									</td>
 
-									<td>
-										<%=  address.user.orders.count %>
-									</td>
 
-									<td>
-										<%= address.created_at %>
-									</td>
 
 
 
@@ -81,13 +82,13 @@
 
 
 									<td class="col-xs-4">
-										<%= link_to "Show", address_path( address ) %>
+										<%= link_to "Show", order_path( order ) %>
 									</td>
 									<td>
-										<%= link_to "Edit", edit_address_path( address ) %>
+										<%= link_to "Edit", edit_order_path( order ) %>
 									</td>
 									<td>
-										<%= link_to "Delete", address_path( address ), method: :delete, data: {confirm: "Really delete the user?"} %>
+										<%= link_to "Delete", order_path( order ), method: :delete, data: {confirm: "Really delete the user?"} %>
 									</td>
 
 								</tr>
