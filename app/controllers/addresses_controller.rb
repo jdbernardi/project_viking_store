@@ -23,6 +23,8 @@ class AddressesController < ApplicationController
 
 	def new
 
+
+
 		@user = User.find(params[:user])
 		addresses = Address.where(user_id: @user.id)
 		user_id = addresses.first.user_id
@@ -77,9 +79,35 @@ class AddressesController < ApplicationController
 
 	def create
 
-		@address = Address.new( address_params )
+		user_id = params[:id]
+		street = params[:street_address]
+		zip = params[:zip_code]
 
-		binding.pry
+		city = City.find_or_create_by(name: params[:city])
+
+		state = State.find(params[:state][:id])
+
+		@address = Address.new(
+				street_address: street,
+				zip_code: zip,
+				city: city,
+				state: state,
+				user_id: user_id  )
+
+ 		if @address.save
+
+ 			flash.notice = "Address updated!"
+
+ 			redirect_to addresses_path
+
+ 		else
+
+ 			flash.notice = errors
+ 			redirect_to new_address_path(:user => user_id)
+
+ 		end
+
+
 
 	end
 

@@ -28,5 +28,7 @@ Rails.application.routes.draw do
  	patch '/admin/user/addresses/update' => 'addresses#update'
 
 
+ 	post '/admin/user/addresses/new' => 'addresses#create'
+
 
 end

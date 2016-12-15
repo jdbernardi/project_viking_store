@@ -1,10 +1,8 @@
 module AddressesHelper
 
+	def errors
 
-	def address_params
-
-		params.require(:user).permit(:street_address)
-
+			flash.notice = "#{@address.errors.full_messages.join}"
 
 	end
 
