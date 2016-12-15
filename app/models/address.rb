@@ -4,9 +4,7 @@ class Address < ApplicationRecord
 
 	belongs_to :user
 
-	validates :city, presence: true
-
-	validates :state, presence: true
+	validates :street_address, length: { in: 1..64 }, presence: true
 
 	validates :zip_code, presence: true
 
