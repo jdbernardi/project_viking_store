@@ -1,0 +1,103 @@
+<%= render :partial => "/layouts/adminheader" %>
+
+
+    <div class="container-fluid">
+
+      <div class="row">
+        <%= render :partial => "/layouts/links_index" %>
+
+
+        <div class="col-xs-7 col-xs-offset-1 admin-view">
+
+
+			<%= render :partial => '/layouts/notice' %>
+
+
+
+					<% if !params[:user] %>
+
+						<h2 class="center">Addresses</h2>
+				      <div>
+						    <p class="center">Create new orders from within&nbsp<%= link_to "user", new_user_path %>&nbspprofiles</p><br /><br />
+						  </div>
+
+					<% else %>
+
+						<h2 class="center"><%= @user.first_name %>&nbspAddresses</h2>
+						<div class='center'>
+							<%= link_to :New, new_address_path(:user => @user.id), class: "btn btn-primary btn-center", type: 'button' %>
+						</div>
+
+					<% end %>
+
+
+
+
+				<div class="table-responsive">
+					<table class="table">
+					<thead>
+							<tr>
+								<th class="col-xs-1">ID</th>
+								<th class="col-xs-2">User</th>
+								<th class="col-xs-2">Street</th>
+								<th class="col-xs-2">City</th>
+								<th class="col-xs-1">State</th>
+								<th class="col-xs-1">Total Value</th>
+								<th class="col-xs-1">Status</th>
+								<th class="col-xs-1">Date Placed</th>
+								<th class="col-xs-1">SHOW</th>
+								<th class="col-xs-1">EDIT</th>
+								<th class="col-xs-1">DELETE</th>
+
+
+							</tr>
+						</thead>
+						<tbody>
+							<% @orders.each do | order | %>
+								<tr>
+									<td><%= address.id %></td>
+									<td><%= link_to address.user.first_name,  user_path( address.user ) %></td>
+									<td>
+										<%= address.street_address %>
+									</td>
+									<td>
+										<%= address.city.name %>
+									</td>
+									<td>
+										<%= to_state_abbrev(address.state.name) %>
+									</td>
+
+									<td>
+										<%=  address.user.orders.count %>
+									</td>
+
+									<td>
+										<%= address.created_at %>
+									</td>
+
+
+
+
+
+
+									<td class="col-xs-4">
+										<%= link_to "Show", address_path( address ) %>
+									</td>
+									<td>
+										<%= link_to "Edit", edit_address_path( address ) %>
+									</td>
+									<td>
+										<%= link_to "Delete", address_path( address ), method: :delete, data: {confirm: "Really delete the user?"} %>
+									</td>
+
+								</tr>
+							<% end %>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+
+
+      </div>
+    </div>
