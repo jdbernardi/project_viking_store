@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
 
 		if params[:user]
 
-			@orders = Order.where( user_id: params[:user] ).limit(100)
+			@orders = Order.where( user_id: params[:user] )
 			@user = User.find( params[:user] )
 
 		else
@@ -26,6 +26,7 @@ class OrdersController < ApplicationController
 		elsif Order.exists?(params[:id])
 
 			@order = Order.find( params[:id])
+
 
 		else
 

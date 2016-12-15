@@ -58,20 +58,44 @@
 		<% end %>
 
 	<!--SHIPPNG AND BILLING -->
+			<tr>
+				<td colspan="2"><h3>Shipping Address</h3></td>
+			</tr>
 
-		<tr class="form-group">
-			<td><%= label_tag 'Customer ID:' %></td>
-			<td><%= label_tag 'user_id', @order.user_id %></td>
-		</tr>
-		<tr class="form-group">
-			<td><%= label_tag 'Customer:' %></td>
-			<td><%= label_tag 'user[:name]', @order.user.first_name %></td>
-		</tr>
-		<tr class="form-group">
-			<td><%= label_tag 'Date Placed:' %></td>
-			<td><%= label_tag :checkout_date, @order.checkout_date %></td>
-		</tr>
+			<tr class="form-group">
+				<td><%= label_tag 'Street' %></td>
+				<td><%= label_tag 'street_address', get_street_address(@order.shipping_id) %></td>
+			</tr>
+			<tr class="form-group">
+				<td><%= label_tag 'City' %></td>
+				<td><%= label_tag 'city', get_city( @order.shipping_id ) %></td>
+			</tr>
+			<tr class="form-group">
+				<td><%= label_tag 'State' %></td>
+				<td><%= label_tag :state, get_state(@order.shipping_id) %></td>
+			</tr>
 
+
+			<tr>
+				<td colspan="2"><h3>Billing Address</h3></td>
+			</tr>
+
+			<tr class="form-group">
+				<td><%= label_tag 'Street' %></td>
+				<td><%= label_tag 'street_address', get_street_address(@order.billing_id) %></td>
+			</tr>
+			<tr class="form-group">
+				<td><%= label_tag 'City' %></td>
+				<td><%= label_tag 'city', get_city( @order.billing_id ) %></td>
+			</tr>
+			<tr class="form-group">
+				<td><%= label_tag 'State' %></td>
+				<td><%= label_tag :state, get_state(@order.billing_id) %></td>
+			</tr>
+			<tr class="form-group">
+				<td><%= label_tag 'Credit Card' %></td>
+				<td><%= label_tag :credit_card, get_credit_card(@order.credit_card_id) %></td>
+			</tr>
 
 
 

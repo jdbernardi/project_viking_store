@@ -6,6 +6,7 @@ class Order < ApplicationRecord
 	has_many :categories, :through => :products
 
 
+
 	has_many :products, through: :order_contents
 
 	has_many :order_contents

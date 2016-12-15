@@ -6,7 +6,6 @@ class OrderContent < ApplicationRecord
 
   def revenue
 
-
 		quantity * product.price
 
 	end
