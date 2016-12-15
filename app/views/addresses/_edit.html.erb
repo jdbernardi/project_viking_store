@@ -1,20 +1,13 @@
-<%= form_tag("/admin/user/addresses/update#{@user.id}", method: "patch") do %>
-
-<%= label_tag :user, "ID" %>
-<%= text_field_tag :user, "#{@user.id}" %>
-<%=submit_tag "update" %>
-<% end %>
-
 <h1> EDIT </h1>
 
   <%= form_tag(@url, method: 'patch') do %>
     <tr class="form-group">
       <td><%= label_tag 'Street:' %></td>
-      <td><%= text_field_tag 'street_address', @address.street_address, class: "form-control" %></td>
+      <td><%= text_field_tag 'street_address', @address.street_address, class: "form-control", :required => true %></td>
     </tr>
 		<tr class="form-group">
 			<td><%= label_tag 'City: ' %></td>
-			<td><%= text_field_tag 'city', @address.city.name, class: "form-control" %></td>
+			<td><%= text_field_tag 'city', @address.city.name, class: "form-control", :required => true %></td>
           </tr>
           <tr>
             <td><%= label_tag 'State: ' %></td>
@@ -22,7 +15,7 @@
           </tr>
           <tr>
           <td><%= label_tag 'Zip: ' %></td>
-          <td><%= text_field_tag 'zip', @address.zip_code, class: "form-control" %></td>
+          <td><%= text_field_tag 'zip', @address.zip_code, class: "form-control", :required => true %></td>
           </tr>
 
           <tr>

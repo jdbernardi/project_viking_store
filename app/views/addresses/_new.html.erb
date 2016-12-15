@@ -5,12 +5,12 @@
   <%= form_tag('/admin/user/addresses/new', :method => 'post') do %>
     <tr class="form-group">
       <td><%= label_tag 'Street:' %></td>
-      <td><%= text_field_tag 'street_address' %></td>
+      <td><%= text_field_tag 'street_address', nil, :required => true %></td>
     </tr>
 
 		<tr class="form-group">
 			<td><%= label_tag 'City: ' %></td>
-			<td><%= text_field_tag 'city' %></td>
+			<td><%= text_field_tag 'city', nil, :required => true %></td>
           </tr>
           <tr>
             <td><%= label_tag 'State: ' %></td>
@@ -18,7 +18,7 @@
           </tr>
           <tr>
           <td><%= label_tag 'Zip: ' %></td>
-          <td><%= text_field_tag 'zip_code' %></td>
+          <td><%= text_field_tag 'zip_code', nil, :required => true %></td>
           </tr>
 
         <tr class='form_group'>
