@@ -14,6 +14,13 @@ module OrdersHelper
 
 	end
 
+
+	def errors
+
+			flash.notice = "#{@order.errors.full_messages.join}"
+
+	end
+
 end
 
 
