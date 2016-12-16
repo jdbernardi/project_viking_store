@@ -58,7 +58,7 @@ class AddressesController < ApplicationController
 
 		zip = params[:zip]
 
- 		if @address.update( city_id: city.id, state_id: state.id,
+ 		if @address.update( street_address: @address.street_address, city_id: city.id, state_id: state.id,
  		  zip_code: zip )
 
  			flash.notice = "Address updated!"
