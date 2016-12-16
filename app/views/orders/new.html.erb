@@ -45,7 +45,7 @@
 
 			<tr class="form-group">
 				<td><%= label_tag 'Street' %></td>
-				<td><%= collection_select :address, :id, Address.where(:user_id == @user.id), :id, :street_address %></td>
+				<td><%= collection_select :address, :id, Address.where( :user_id => @user.id ), :id, :street_address %></td>
 			</tr>
 
 			<tr>
@@ -54,7 +54,7 @@
 
 			<tr class="form-group">
 				<td><%= label_tag 'Street' %></td>
-				<td><%= collection_select :address, :id, Address.where(:user_id == @user.id), :id, :street_address %></td>
+				<td><%= collection_select :address, :id, Address.where(:user_id => @user.id), :id, :street_address %></td>
 			</tr>
 
 			<tr>
@@ -63,7 +63,7 @@
 
 			<tr class="form-group">
 				<td><%= label_tag 'Credit Card' %></td>
-				<td><%= collection_select :credit_card, :id, CreditCard.where(:user_id == @user.id), :id, :card_number %></td>
+				<td><%= collection_select :credit_card, :id, CreditCard.where(:user_id => @user.id), :id, :last_four %></td>
 			</tr>
 
 		<tr>

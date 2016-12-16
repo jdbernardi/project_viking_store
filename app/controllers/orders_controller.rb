@@ -19,7 +19,7 @@ class OrdersController < ApplicationController
 
 	def new
 
-		@user = User.find( params[:format] )
+		@user = User.find( params[:id] )
 		@order = Order.new
 
 	end

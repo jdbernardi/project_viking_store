@@ -9,4 +9,14 @@ class Address < ApplicationRecord
 
 	validates :zip_code, presence: true
 
+	#validates_presence_of :street_address, :granted_at, :if => :valid_user?
+
+	private
+
+	def valid_user?
+
+		binding.pry
+
+	end
+
 end
