@@ -17,6 +17,16 @@ class OrdersController < ApplicationController
 	end
 
 
+	def new
+
+		@user = User.find( params[:format] )
+		@order = Order.new
+
+	end
+
+
+
+
 	def show
 
 		if User.exists?(params[:id])
