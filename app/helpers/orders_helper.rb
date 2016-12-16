@@ -1,31 +1,19 @@
 module OrdersHelper
 
 	def revenue( order )
-
 		arr = []
-
 		order.order_contents.each do |o|
-
 			arr << o.revenue
-
 		end
-
 		return arr.inject( 0 ) { | r, e | r + e }
-
 	end
 
 	def num_products( order_contents )
-
 		arr = []
-
 		order_contents.each do | n |
-
 			arr << n.quantity
-
 		end
-
 		return arr.inject( 0 ) { |r, e| r + e }
-
 	end
 
 
@@ -34,6 +22,7 @@ module OrdersHelper
 		id.nil? ? "N/A" : Address.find( id ).street_address
 
 	end
+
 
 	def get_city( id )
 
@@ -55,6 +44,11 @@ module OrdersHelper
 
 	end
 
+	def last_four_digits( number )
+
+		return number.split(//).last(4).join
+
+	end
 
 	def errors
 

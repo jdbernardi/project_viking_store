@@ -94,7 +94,7 @@
 			</tr>
 			<tr class="form-group">
 				<td><%= label_tag 'Credit Card' %></td>
-				<td><%= label_tag :credit_card, get_credit_card(@order.credit_card_id) %></td>
+				<td><%= label_tag :credit_card, last_four_digits( get_credit_card(@order.credit_card_id) ) %></td>
 			</tr>
 
 
