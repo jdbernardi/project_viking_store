@@ -1,5 +1,7 @@
 module ApplicationHelper
 
+
+
 def to_state_abbrev( state )
 
 states = {"Alabama"      => "AL",

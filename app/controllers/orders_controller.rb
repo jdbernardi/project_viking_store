@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
 
 		else
 
-			@orders = Order.all.limit(40)
+			@orders = Order.all.limit(200)
 
 		end
 

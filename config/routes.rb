@@ -12,6 +12,11 @@ Rails.application.routes.draw do
 
   get '/admin/user/addresses/' => 'addresses#index'
 
+ 	patch '/admin/user/addresses/update' => 'addresses#update'
+
+
+ 	post '/admin/user/addresses/new' => 'addresses#create'
+
  	scope '/admin' do
  		resources :categories
  		resources :products
@@ -26,10 +31,7 @@ Rails.application.routes.draw do
 
  	end
 
- 	patch '/admin/user/addresses/update' => 'addresses#update'
 
-
- 	post '/admin/user/addresses/new' => 'addresses#create'
 
 
 end

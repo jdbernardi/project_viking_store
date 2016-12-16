@@ -70,9 +70,17 @@
 									<td>
 										<%=  revenue( order ) %>
 									</td>
-									<td>
-										<%=  order.checkout_date.nil? ? "PLACED" : "UNPLACED" %>
-									</td>
+
+									<% if order.checkout_date.nil? %>
+
+											<td><p class="unplaced">UNPLACED</p></td>
+
+									<% else %>
+											<td><p class="placed">PLACED</p></td>
+
+									<% end %>
+
+
 									<td>
 										<%=  (order.updated_at).strftime("%Y-%m-%d") %>
 									</td>
