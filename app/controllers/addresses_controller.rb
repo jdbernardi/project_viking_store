@@ -45,6 +45,8 @@ class AddressesController < ApplicationController
 
 		@user = User.find( user_id )
 
+
+
 	end
 
 

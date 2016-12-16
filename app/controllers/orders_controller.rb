@@ -27,7 +27,6 @@ class OrdersController < ApplicationController
 
 			@order = Order.find( params[:id])
 
-
 		else
 
 			redirect_to orders_path
