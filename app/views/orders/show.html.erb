@@ -124,7 +124,7 @@
 			<tr>
 				<td><%= o.product_id %></td>
 
-				<td><%= o.product.name %></td>
+				<td><%= link_to o.product.name, product_path(o.product ) %></td>
 
 				<td class="center"><%= o.quantity %></td>
 
