@@ -45,7 +45,7 @@
 
 			<tr class="form-group">
 				<td><%= label_tag 'Street' %></td>
-				<td><%= collection_select :address, :id, Address.where( :user_id => @user.id ), :id, :street_address %></td>
+				<td><%= collection_select :address, :shipping_id, Address.where( :user_id => @user.id ), :id, :street_address %></td>
 			</tr>
 
 			<tr>
@@ -54,7 +54,7 @@
 
 			<tr class="form-group">
 				<td><%= label_tag 'Street' %></td>
-				<td><%= collection_select :address, :id, Address.where(:user_id => @user.id), :id, :street_address %></td>
+				<td><%= collection_select :address, :billing_id, Address.where(:user_id => @user.id), :id, :street_address %></td>
 			</tr>
 
 			<tr>
@@ -75,7 +75,7 @@
 				</div>
 			</td>
 		</tr>
-
+		<div><%= hidden_field_tag 'user_id', @user.id %>
 		<tr>
 			<td colspan="2">
 				<p class="center gray">

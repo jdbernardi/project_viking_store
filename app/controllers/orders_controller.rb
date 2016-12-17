@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
 
+	include OrdersHelper
 
 	def index
 
@@ -47,7 +48,19 @@ class OrdersController < ApplicationController
 
 	def create
 
-
+		@order = Order.new(
+				:user_id => params[:user_id],
+				:shipping_id => params[:address][:shipping_id],
+				:billing_id => params[:address][:billing_id],
+				:credit_card_id => params[:credit_card][:id]
+		 )
+		@order.save
+		redirect_to edit_order_path( @order )
+		# Order(id: integer, checkout_date: datetime, user_id: integer, shipping_id: integer, billing_id: integer, created_at: datetime, updated_at: datetime, credit_card_id: integer)
+		# Parameters {
+		#	"user_id"=>"519", "utf8"=>
+		#	"address"=>{"shipping_id"=>"1346", "billing_id"=>"1345"}
+		#	"credit_card"=>{"id"=>"410"}
 
 
 	end

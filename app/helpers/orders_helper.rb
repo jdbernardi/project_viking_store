@@ -1,5 +1,13 @@
 module OrdersHelper
 
+	def order_params
+
+		params.permit(:id, params[:address][:shipping_id] => :shipping_id, params[:credit_card][:id] => :credit_card_id )
+
+	end
+
+
+
 	def revenue( order )
 		arr = []
 		order.order_contents.each do |o|
