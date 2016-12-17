@@ -8,7 +8,7 @@
 
 	</div>
 
-	<h1 class="center">New Order for&nbsp<%= @user.first_name %>&nbsp<%= @user.last_name %></h1>
+	<h1 class="center">Edit Order for&nbsp<%= @user.first_name %>&nbsp<%= @user.last_name %></h1>
 
 	<table class="table col-xs-6">
 
@@ -16,7 +16,7 @@
 			<th class="center"  colspan = "2">Logistical Information</th>
 		</thead>
 		<tr>
-			<td colspan="2"><h3>Basic Information<h3></td>
+			<td  colspan="2"><h3>Basic Information<h3></td>
 		</tr>
 
 <!-- ORDER TABLE -->
@@ -35,7 +35,23 @@
 			<td><%= label_tag @order.checkout_date %></td>
 		</tr>
 		<tr>
-			<td><%= link_to "Edit Customer Profile", edit_user_path( @user ) %></td>
+			<td colspan="2"><%= link_to "Edit Customer Profile", edit_user_path( @user ) %></td>
+		</tr>
+
+<!-- ORDER STATUS WITH RADIO BUTTONS -->
+
+		<tr>
+			<td  colspan="2"><h3 colspan="2">Order Status<h3></td>
+		</tr>
+
+		<tr>
+			<td><%= radio_button_tag :checkout_date, "placed" %></td>
+			<td><%= label_tag :placed_order, "Placed", class: 'placed' %></td>
+		</tr>
+
+		<tr>
+			<td><%= radio_button_tag :checkout_date, "unplaced", true if @order.checkout_date.nil? %></td>
+			<td><%= label_tag :unplaced_order, "Unplaced", class: 'unplaced' %></td>
 		</tr>
 
 	<!--SHIPPNG AND BILLING -->
@@ -77,12 +93,8 @@
 		</tr>
 		<div><%= hidden_field_tag 'user_id', @user.id %>
 		<tr>
-			<td colspan="2">
-				<p class="center gray">
-					<em>
-						You can add products on the next screen, once it's been created
-					</em>
-				</p>
+			<td colspan="2" class="center">
+				<%= link_to 'Delete Order', order_path(@order), method: 'delete', data: { confirm: "Are you sure you want to delete this order?"} %>
 			</td>
 		</tr>
 

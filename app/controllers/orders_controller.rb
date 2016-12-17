@@ -67,7 +67,6 @@ class OrdersController < ApplicationController
 
 	def edit
 
-		binding.pry
 		@order = Order.find( params[:id] )
 		@user = User.find(@order.user_id)
 
