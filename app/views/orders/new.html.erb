@@ -21,7 +21,7 @@
 
 <!-- ORDER TABLE -->
 
-		<%= form_tag @user do %>
+		<%= form_tag @order do %>
 		<tr class="form-group">
 			<td><%= label_tag 'Customer ID:' %></td>
 			<td><%= label_tag 'user_id', @user.id %></td>
@@ -70,7 +70,7 @@
 			<td colspan="2">
 				<div class="row">
 					<button class="col-xs-10 col-xs-offset-1 btn btn-primary">
-						<%= link_to "Create Order in Shopping Cart" %>
+						<%= submit_tag "Create Order in Shopping Cart" %>
 					</button>
 				</div>
 			</td>

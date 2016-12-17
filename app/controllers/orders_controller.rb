@@ -25,8 +25,6 @@ class OrdersController < ApplicationController
 	end
 
 
-
-
 	def show
 
 		if User.exists?(params[:id])
@@ -46,5 +44,12 @@ class OrdersController < ApplicationController
 
 	end
 
+
+	def create
+
+
+
+
+	end
 
 end
