@@ -1,0 +1,107 @@
+<div class="container">
+
+
+	<div class="row center">
+
+	<%= render :partial => '/layouts/notice' %>
+
+
+	</div>
+
+	<h1 class="center">New Order for&nbsp<%= @user.first_name %>&nbsp<%= @user.last_name %></h1>
+
+	<table class="table col-xs-6">
+
+		<thead>
+			<th class="center"  colspan = "2">Logistical Information</th>
+		</thead>
+		<tr>
+			<td colspan="2"><h3>Basic Information<h3></td>
+		</tr>
+
+<!-- ORDER TABLE -->
+
+		<%= form_tag @order do %>
+		<tr class="form-group">
+			<td><%= label_tag 'Customer ID:' %></td>
+			<td><%= label_tag 'user_id', @user.id %></td>
+		</tr>
+		<tr class="form-group">
+			<td><%= label_tag 'Customer:' %></td>
+			<td><%= label_tag 'user[:name]', @user.first_name %></td>
+		</tr>
+		<tr class="form-group">
+			<td><%= label_tag 'Date Placed:' %></td>
+			<td><%= label_tag @order.checkout_date %></td>
+		</tr>
+		<tr>
+			<td><%= link_to "Edit Customer Profile", edit_user_path( @user ) %></td>
+		</tr>
+
+	<!--SHIPPNG AND BILLING -->
+			<tr>
+				<td colspan="2"><h3>Shipping Address</h3></td>
+			</tr>
+
+			<tr class="form-group">
+				<td><%= label_tag 'Street' %></td>
+				<td><%= collection_select :address, :shipping_id, Address.where( :user_id => @user.id ), :id, :street_address %></td>
+			</tr>
+
+			<tr>
+				<td colspan="2"><h3>Billing Address</h3></td>
+			</tr>
+
+			<tr class="form-group">
+				<td><%= label_tag 'Street' %></td>
+				<td><%= collection_select :address, :billing_id, Address.where(:user_id => @user.id), :id, :street_address %></td>
+			</tr>
+
+			<tr>
+				<td colspan="2"><h3>Billing Card</h3></td>
+			</tr>
+
+			<tr class="form-group">
+				<td><%= label_tag 'Credit Card' %></td>
+				<td><%= collection_select :credit_card, :id, CreditCard.where(:user_id => @user.id), :id, :last_four %></td>
+			</tr>
+
+		<tr>
+			<td colspan="2">
+				<div class="row">
+					<button class="col-xs-10 col-xs-offset-1 btn btn-primary">
+						<%= submit_tag "Update Order Information" %>
+					</button>
+				</div>
+			</td>
+		</tr>
+		<div><%= hidden_field_tag 'user_id', @user.id %>
+		<tr>
+			<td colspan="2">
+				<p class="center gray">
+					<em>
+						You can add products on the next screen, once it's been created
+					</em>
+				</p>
+			</td>
+		</tr>
+
+
+</table>
+
+
+
+	<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+</div> <!-- container -->
