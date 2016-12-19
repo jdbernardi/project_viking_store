@@ -101,11 +101,38 @@
 
 </table>
 
+<% end %>
 
 
-	<% end %>
+<!-- EDIT ORDER CONTENTS -->
+<table class="table">
+	<thead class="plain-border">
+		<h1 class="center">Edit Order Contents</h1>
+	</thead>
 
+	<tr>
+		<th>ID</th>
+		<th>Quantity</th>
+		<th>Price</th>
+		<th>Total Price</th>
+		<th>REMOVE</th>
+	</tr>
+			<% @order.order_contents.each do | o | %>
+			<tr>
+				<td><%= o.id %></td>
 
+				<td class="center"><%= o.quantity %></td>
+
+				<td class="right">$<%= o.product.price %></td>
+
+				<td class="right">$<%= o.revenue %></td>
+
+				<td><%= link_to 'REMOVE', product_path( o ), method: 'delete' %></td>
+
+			</tr>
+			<% end %>
+
+</table>
 
 
 

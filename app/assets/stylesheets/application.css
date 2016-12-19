@@ -22,6 +22,12 @@
 }
 
 
+.plain-border {
+
+	border: 1px solid #313241;
+
+}
+
 .unplaced {
 
 	color: red;
