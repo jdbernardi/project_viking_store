@@ -117,11 +117,13 @@
 		<th>Total Price</th>
 		<th>REMOVE</th>
 	</tr>
+	<%= form_tag @order do %>
+
 			<% @order.order_contents.each do | o | %>
 			<tr>
 				<td><%= o.id %></td>
 
-				<td class="center"><%= o.quantity %></td>
+				<td class="center"><%= text_field_tag :quantity, o.quantity %></td>
 
 				<td class="right">$<%= o.product.price %></td>
 
@@ -132,8 +134,38 @@
 			</tr>
 			<% end %>
 
+			<tr>
+				<td colspan="5" class="center"><%= link_to "Update Order Contents"   %></td>
+			</tr>
+
+
+	<% end %>
+
 </table>
 
+<!--ADD PRODUCTS TO ORDER -->
+<table class="table">
+
+	<thead>
+		<h3 class="center">Add Products to Order</h3><br />
+		<p class="center"><em>Add up to 5 products at a time</em></p>
+	</thead>
+
+	<tr>
+		<th>Product ID</th>
+		<th>Quantity</th>
+	</tr>
+
+	<%= form_tag @order do %>
+		<% 5.times do %>
+		<tr>
+			<td><%= text_field_tag :product_id, nil, class: 'full-width' %></td>
+			<td><%= text_field_tag :quantity, nil, class: 'full-width' %></td>
+		</tr>
+		<% end %>
+
+	<% end %>
+</table>
 
 
 

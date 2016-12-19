@@ -35,7 +35,7 @@ class OrdersController < ApplicationController
 		elsif Order.exists?(params[:id])
 
 			@order = Order.find( params[:id])
-			@order_contents = @order.order_contents
+
 
 		else
 
