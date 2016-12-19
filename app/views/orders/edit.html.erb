@@ -156,13 +156,17 @@
 		<th>Quantity</th>
 	</tr>
 
-	<%= form_tag @order do %>
+	<%= form_tag "/admin/orders/update_products/" do %>
 		<% 5.times do %>
 		<tr>
 			<td><%= text_field_tag :product_id, nil, class: 'full-width' %></td>
 			<td><%= text_field_tag :quantity, nil, class: 'full-width' %></td>
 		</tr>
 		<% end %>
+		<tr>
+			<%= hidden_field_tag :id, @order.id %>
+			<td class="center" colspan="2"><%= submit_tag "Add Products to Order" %></td>
+		</tr>
 
 	<% end %>
 </table>

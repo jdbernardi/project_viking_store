@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
  	post '/admin/user/addresses/new' => 'addresses#create'
 
+ 	# updating products on new/edit orders page
+
  	scope '/admin' do
  		resources :categories
  		resources :products
@@ -28,6 +30,7 @@ Rails.application.routes.draw do
  			resources :addresses
 
  		end
+
 
  	end
 

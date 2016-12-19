@@ -46,6 +46,12 @@ class OrdersController < ApplicationController
 	end
 
 
+	def update_products
+
+		binding.pry
+
+	end
+
 	def create
 
 		@order = Order.new(
