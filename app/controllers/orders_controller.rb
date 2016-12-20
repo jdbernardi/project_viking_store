@@ -50,8 +50,11 @@ class OrdersController < ApplicationController
 	def update_products
 
 		@order = Order.find( params[:id] )
-binding.pry
+		binding.pry
 		redirect_to edit_order_path( @order )
+		# check params[product_id] to see that there is a valid id
+		# if one is bogus, then abort!
+		# 
 
 	end
 
