@@ -158,15 +158,13 @@
 
 	<%= form_tag '/admin/orders/update_products/' do %>
 
+	<%= 5.times do %>
 		<tr class="form-group">
 			<td><%= text_field_tag "product_id[]", nil, class: 'full-width' %></td>
-			<td><%= text_field_tag :quantity, nil, class: 'full-width' %></td>
-		</tr>
-		<tr class="form-group">
-			<td><%= text_field_tag "product_id[]", nil, class: 'full-width' %></td>
-			<td><%= text_field_tag :quantity, nil, class: 'full-width' %></td>
+			<td><%= text_field_tag "quantity[]", nil, class: 'full-width' %></td>
 		</tr>
 
+	<% end %>
 		<tr class="form-group">
 			<tr class="form-group">
 				<%= hidden_field_tag :id, @order.id %>

@@ -50,7 +50,7 @@ class OrdersController < ApplicationController
 	def update_products
 
 		@order = Order.find( params[:id] )
-
+binding.pry
 		redirect_to edit_order_path( @order )
 
 	end
