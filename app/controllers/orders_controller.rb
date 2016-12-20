@@ -46,17 +46,22 @@ class OrdersController < ApplicationController
 	end
 
 
+	# custom action on edit/new order to add products to order
 	def update_products
 
-		binding.pry
+		@order = Order.find( params[:id] )
+
+		redirect_to edit_order_path( @order )
 
 	end
+
+
 
 	def create
 
 		@order = Order.new(
 				:user_id => params[:user_id],
-				:shipping_id => params[:address][:shipping_id],
+				:shipping_id => params[:address][:shdipping_id],
 				:billing_id => params[:address][:billing_id],
 				:credit_card_id => params[:credit_card][:id]
 		 )

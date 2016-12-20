@@ -23,7 +23,11 @@ Rails.application.routes.draw do
  		resources :categories
  		resources :products
  		resources :users
- 		resources :orders
+ 		resources :orders do
+ 			collection do
+ 				post 'update_products', :action => :update_products
+ 			end
+ 		end
 
  		scope 'user' do
 
