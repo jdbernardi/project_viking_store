@@ -48,9 +48,24 @@ class OrdersController < ApplicationController
 
 	def update_contents
 
+		@order = Order.find( params[ :order_id ] )
+		# each of the order contents are coming into this controller
+		# the contents ID will be tracked and assigned
+		# each qty is tracked to its content id and updated
+		# if the quantity is zero, the corresponding ID is deleted aka order contents
+		# after saving the change there is a redirect to the the show page
 
+		# order contents
 		#"id"=>["8150", "8148", "8149", "8147"]
-		#"quantity"=>["2", "3", "2", "5"]
+
+		# if qty is blank use this
+	  # params[:quantity][1].empty?
+	  # otherwise '0'
+
+		# order id
+		#"order_id"=>"1501"
+
+		# "quantity"=>["1", "1", "1", "1"]
 
 		# redirect to show
 		binding.pry
