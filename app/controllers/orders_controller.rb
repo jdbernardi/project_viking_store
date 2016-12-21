@@ -49,12 +49,13 @@ class OrdersController < ApplicationController
 	def update_contents
 
 		@order = Order.find( params[ :order_id ] )
+		quantities = params[:quantity]
 		# each of the order contents are coming into this controller
 		# the contents ID will be tracked and assigned
 		# each qty is tracked to its content id and updated
 		# if the quantity is zero, the corresponding ID is deleted aka order contents
 		# after saving the change there is a redirect to the the show page
-
+		update_quantity( params[:id], quantities )
 		# order contents
 		#"id"=>["8150", "8148", "8149", "8147"]
 

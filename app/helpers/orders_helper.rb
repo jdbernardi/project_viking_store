@@ -7,6 +7,16 @@ module OrdersHelper
 	end
 
 
+	def update_quantity( oc_id, quantities )
+
+		#grab order content id array and qty array
+		# this is where we will update the OrderContentModel with new qty or delete them
+		# maybe add a new method for handling check
+
+	end
+
+
+
 
 	def revenue( order )
 		arr = []
