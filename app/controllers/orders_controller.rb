@@ -55,11 +55,28 @@ class OrdersController < ApplicationController
 		# each qty is tracked to its content id and updated
 		# if the quantity is zero, the corresponding ID is deleted aka order contents
 		# after saving the change there is a redirect to the the show page
-		#redirect_to edit_order_path( @order ) if 
-		value = check_quantities( quantities )
+    if	check_quantities( quantities )
+
+    	n = 0
+
+    	@order.order_contents.each do | oc |
+
+
+
+    		oc.quantity = quantities[n]
+
+    		n += 1
+
+    	end
+binding.pry
+    else
+
+    	redirect_to edit_order_path( @order )
+
+    end
 		# order contents
 		#"id"=>["8150", "8148", "8149", "8147"]
-binding.pry
+
 		# if qty is blank use this
 	  # params[:quantity][1].empty?
 	  # otherwise '0'
