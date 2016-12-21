@@ -63,11 +63,12 @@ class OrdersController < ApplicationController
 
     		if quantities[n] == "0"
 
-    			#oc.destroy
+    			oc.destroy
 
     		else
 
 	    		oc.quantity = quantities[n]
+	    		oc.save
 
     	  end
 
@@ -75,9 +76,9 @@ class OrdersController < ApplicationController
 
     	end
 
-    	@order.save
 
-binding.pry
+
+
     else
 
     	redirect_to edit_order_path( @order )
