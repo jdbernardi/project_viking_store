@@ -50,11 +50,7 @@ class OrdersController < ApplicationController
 
 		@order = Order.find( params[ :order_id ] )
 		quantities = params[:quantity]
-		# each of the order contents are coming into this controller
-		# the contents ID will be tracked and assigned
-		# each qty is tracked to its content id and updated
-		# if the quantity is zero, the corresponding ID is deleted aka order contents
-		# after saving the change there is a redirect to the the show page
+
     if	check_quantities( quantities )
 
     	n = 0
@@ -77,26 +73,14 @@ class OrdersController < ApplicationController
     	end
 
 
-
+    	redirect_to order_path( @order )
 
     else
 
     	redirect_to edit_order_path( @order )
 
     end
-		# order contents
-		#"id"=>["8150", "8148", "8149", "8147"]
 
-		# if qty is blank use this
-	  # params[:quantity][1].empty?
-	  # otherwise '0'
-
-		# order id
-		#"order_id"=>"1501"
-
-		# "quantity"=>["1", "1", "1", "1"]
-
-		# redirect to show
 
 
 	end
@@ -107,9 +91,9 @@ class OrdersController < ApplicationController
 
 		@order = Order.find( params[:id] )
 
-		binding.pry
+		value = check_product_ids_and_quantities( params["product_ids"], params["quantities"] )
+binding.pry
 
-		redirect_to edit_order_path( @order )
 		# check params[product_id] to see that there is a valid id
 		# if one is bogus, then abort!
 

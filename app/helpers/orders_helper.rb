@@ -24,20 +24,83 @@ module OrdersHelper
 
 	end
 
-	def update_quantity( oc_ids, quantities )
 
-		binding.pry
-		oc_ids.each do | oc |
+	def check_product_ids_and_quantities( ids, qty )
 
 
-		end
-		# grab order content id array and qty array
-		# this is where we will update the OrderContentModel with new qty or delete them
-		# maybe add a new method for handling check
+
+		n = 0
+		ids.each do
+
+			# Product.exists?( id )
+			if Product.exists?( ids[ n ] ) && is_number?( qty[ n ] )
+			# if it exists, is the qty a number?
+			# if true then does the order already have product
+				if order_have_product_already?( ids[n] )
+
+					o = @order.order_contents.find_by(product_id: ids[n] )
+					o.quantity += qty[ n ].to_i
+					o.save
+
+				else
+
+					oc = OrderContent.new
+					oc.order_id = @order.id
+					oc.quantity = qty[ n ].to_i
+					oc.product_id = ids[ n ]
+
+					oc.save
+
+				end #order_have_product?
+
+			else
+
+				redirect_to edit_order_path( @order )
+
+			end #product.exists?
+
+			n += 1
+
+		end #ids.each
 
 	end
 
 
+	def order_have_product_already?( id )
+
+		@order.order_contents.exists?(product_id: [id])
+
+	end
+
+
+	def check_product_ids( product_ids, quantities )
+
+		n = 0
+
+		product_ids.each do | id |
+
+			if Product.exists?( id ) && is_number?( quantities[ n ] )
+			# if the product exists
+			# create an order content with the id of the order
+				OrderContent.new( :order_id => @order.id, :product_id => id, :quantity => quantities[ n ] )
+			# assign that product id as the product_id
+			# assign the quantity as the quantity
+			# save the order_content
+			# redirect to show with message
+
+			# else redirect to edit with errors
+			else
+
+				return false
+
+			end
+
+			n += 1
+
+		end
+
+
+	end
 
 
 	def revenue( order )
