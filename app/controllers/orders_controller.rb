@@ -49,6 +49,10 @@ class OrdersController < ApplicationController
 	def update_contents
 
 
+		#"id"=>["8150", "8148", "8149", "8147"]
+		#"quantity"=>["2", "3", "2", "5"]
+
+		# redirect to show
 		binding.pry
 
 	end

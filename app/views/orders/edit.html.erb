@@ -122,6 +122,7 @@
 			<% @order.order_contents.each do | o | %>
 			<tr class="form-group">
 				<%= hidden_field_tag "id[]", o.id %>
+				<%= hidden_field_tag "order_id", @order.id %>
 				<td><%= o.id %></td>
 
 				<td class="center"><%= text_field_tag "quantity[]", o.quantity %></td>
