@@ -6,10 +6,32 @@ module OrdersHelper
 
 	end
 
+	def is_number?(string)
 
-	def update_quantity( oc_id, quantities )
+		true if Float( string ) rescue false
 
-		#grab order content id array and qty array
+	end
+
+	def check_quantities( quantities )
+
+		quantities.each do | q |
+
+			return false if !is_number?( q )
+
+		end
+
+		return true
+
+	end
+
+	def update_quantity( oc_ids, quantities )
+
+		binding.pry
+		oc_ids.each do | oc |
+
+
+		end
+		# grab order content id array and qty array
 		# this is where we will update the OrderContentModel with new qty or delete them
 		# maybe add a new method for handling check
 
