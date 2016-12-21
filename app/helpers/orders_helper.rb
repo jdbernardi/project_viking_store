@@ -25,9 +25,15 @@ module OrdersHelper
 	end
 
 
+	def remove_blanks( arr )
+
+			arr.delete("")
+
+			return arr
+
+	end
+
 	def check_product_ids_and_quantities( ids, qty )
-
-
 
 		n = 0
 		ids.each do
@@ -101,6 +107,27 @@ module OrdersHelper
 
 
 	end
+
+
+	def fields_valid?( id, qty )
+
+		n = 0
+
+		id.each do | i |
+
+			if ( i == "" && qty[ n ] != "" ) || ( i != "" && qty[ n ] == "" )
+
+				return false
+			end
+
+			n += 1
+
+		end
+
+		return true
+
+	end
+
 
 
 	def revenue( order )

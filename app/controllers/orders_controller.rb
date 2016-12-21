@@ -91,8 +91,20 @@ class OrdersController < ApplicationController
 
 		@order = Order.find( params[:id] )
 
-		value = check_product_ids_and_quantities( params["product_ids"], params["quantities"] )
-binding.pry
+		if fields_valid?( params["product_ids"], params["quantities"] )
+
+			quantities = remove_blanks( params["quantities"] )
+			product_ids = remove_blanks( params["product_ids"])
+						binding.pry
+		else
+			binding.pry
+			redirect_to edit_order_path( @order )
+			# render errors
+
+		end
+
+		#check_product_ids_and_quantities( product_ids, quantities )
+
 
 		# check params[product_id] to see that there is a valid id
 		# if one is bogus, then abort!
