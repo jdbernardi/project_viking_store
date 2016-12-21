@@ -61,13 +61,22 @@ class OrdersController < ApplicationController
 
     	@order.order_contents.each do | oc |
 
+    		if quantities[n] == "0"
 
+    			#oc.destroy
 
-    		oc.quantity = quantities[n]
+    		else
 
-    		n += 1
+	    		oc.quantity = quantities[n]
+
+    	  end
+
+    	  n += 1
 
     	end
+
+    	@order.save
+
 binding.pry
     else
 
