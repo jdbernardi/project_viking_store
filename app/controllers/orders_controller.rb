@@ -46,11 +46,21 @@ class OrdersController < ApplicationController
 	end
 
 
+	def update_contents
+
+
+		binding.pry
+
+	end
+
+
 	# custom action on edit/new order to add products to order
 	def update_products
 
 		@order = Order.find( params[:id] )
+
 		binding.pry
+
 		redirect_to edit_order_path( @order )
 		# check params[product_id] to see that there is a valid id
 		# if one is bogus, then abort!

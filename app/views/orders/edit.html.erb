@@ -45,12 +45,12 @@
 		</tr>
 
 		<tr>
-			<td><%= radio_button_tag :checkout_date, "placed" %></td>
+			<td><%= radio_button_tag :checkout_date, "placed", @order.checkout_date.nil? %></td>
 			<td><%= label_tag :placed_order, "Placed", class: 'placed' %></td>
 		</tr>
 
 		<tr>
-			<td><%= radio_button_tag :checkout_date, "unplaced", true if @order.checkout_date.nil? %></td>
+			<td><%= radio_button_tag :checkout_date, "unplaced", @order.checkout_date.nil? %></td>
 			<td><%= label_tag :unplaced_order, "Unplaced", class: 'unplaced' %></td>
 		</tr>
 
@@ -117,13 +117,14 @@
 		<th>Total Price</th>
 		<th>REMOVE</th>
 	</tr>
-	<%= form_tag @order do %>
+	<%= form_tag '/admin/orders/update_contents/' do %>
 
 			<% @order.order_contents.each do | o | %>
-			<tr>
+			<tr class="form-group">
+				<%= hidden_field_tag "id[]", o.id %>
 				<td><%= o.id %></td>
 
-				<td class="center"><%= text_field_tag :quantity, o.quantity %></td>
+				<td class="center"><%= text_field_tag "quantity[]", o.quantity %></td>
 
 				<td class="right">$<%= o.product.price %></td>
 
@@ -134,8 +135,8 @@
 			</tr>
 			<% end %>
 
-			<tr>
-				<td colspan="5" class="center"><%= link_to "Update Order Contents"   %></td>
+			<tr class="form-group">
+				<td colspan="5" class="center"><%= submit_tag "Update Order Contents" %></td>
 			</tr>
 
 

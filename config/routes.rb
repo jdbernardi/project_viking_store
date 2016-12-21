@@ -26,6 +26,7 @@ Rails.application.routes.draw do
  		resources :orders do
  			collection do
  				post 'update_products', :action => :update_products
+ 				post 'update_contents', :action => :update_contents
  			end
  		end
 
