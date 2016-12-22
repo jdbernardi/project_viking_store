@@ -125,13 +125,13 @@
 				<%= hidden_field_tag "order_id", @order.id %>
 				<td><%= o.id %></td>
 
-				<td class="center"><%= text_field_tag "quantity[]", o.quantity %></td>
+				<td class="center"><%= text_field_tag "quantity[]", o.quantity, required: true %></td>
 
 				<td class="right">$<%= o.product.price %></td>
 
 				<td class="right">$<%= o.revenue %></td>
 
-				<td><%= link_to 'REMOVE', product_path( o ), method: 'delete' %></td>
+				<td><%= link_to 'REMOVE', order_path( o ), method: 'delete', data: { confirm: "Are you sure you want to delete this?" } %></td>
 
 			</tr>
 			<% end %>

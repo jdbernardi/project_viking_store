@@ -107,18 +107,11 @@ class OrdersController < ApplicationController
       flash.notice = "Products fields invalid!"
 
 			redirect_to edit_order_path( @order )
-			# render errors
 
 		end
 
-		#check_product_ids_and_quantities( product_ids, quantities )
-
-
-		# check params[product_id] to see that there is a valid id
-		# if one is bogus, then abort!
 
 	end
-
 
 
 	def create
@@ -131,14 +124,9 @@ class OrdersController < ApplicationController
 		 )
 		@order.save
 		redirect_to edit_order_path( @order )
-		# Order(id: integer, checkout_date: datetime, user_id: integer, shipping_id: integer, billing_id: integer, created_at: datetime, updated_at: datetime, credit_card_id: integer)
-		# Parameters {
-		#	"user_id"=>"519", "utf8"=>
-		#	"address"=>{"shipping_id"=>"1346", "billing_id"=>"1345"}
-		#	"credit_card"=>{"id"=>"410"}
-
 
 	end
+
 
 	def edit
 
@@ -146,5 +134,22 @@ class OrdersController < ApplicationController
 		@user = User.find(@order.user_id)
 
 	end
+
+
+	def destroy
+
+		@order_content = OrderContent.find( params[:id] )
+
+		@order = Order.find( @order_content.order_id )
+
+		@order_content.destroy
+
+		flash.notice = "Order #{@order_content.id} deleted!"
+
+		redirect_to order_path( @order )
+
+
+	end
+
 
 end
