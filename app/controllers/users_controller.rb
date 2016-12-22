@@ -19,8 +19,18 @@ class UsersController < ApplicationController
 
 	def show
 
-		@user = User.find( params[ :id ] )
-		@card = credit_card( @user )
+		if User.exists?( params[:id] )
+
+			@user = User.find( params[ :id ] )
+			@card = credit_card( @user )
+
+		else
+
+			flash.notice = "User #{params[:id]} not found"
+
+			redirect_to users_path
+
+		end
 
 
 	end

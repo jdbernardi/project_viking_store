@@ -79,6 +79,26 @@ class AddressesController < ApplicationController
 	end
 
 
+
+
+	def destroy
+
+		@address = Address.find( params[ :id ] )
+		@user = User.find( @address.user_id )
+
+		@address.destroy
+
+		flash.notice = "Address deleted!"
+
+		redirect_to addresses_path( @user )
+
+
+	end
+
+
+
+
+
 	def create
 
 		user_id = params[:id]
