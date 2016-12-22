@@ -23,7 +23,7 @@ class AddressesController < ApplicationController
 
 	def new
 
-		@user = User.find(params[:id])
+		@user = User.find(params["format"])
 		#addresses = Address.where(user_id: @user.id)
 
 

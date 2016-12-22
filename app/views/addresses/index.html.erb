@@ -25,7 +25,7 @@
 
 						<h2 class="center"><%= @user.first_name %>&nbspAddresses</h2>
 						<div class='center'>
-							<%= link_to :New, new_address_path(:user => @user.id), class: "btn btn-primary btn-center", type: 'button' %>
+							<%= link_to :New, new_address_path( @user ), class: "btn btn-primary btn-center", type: 'button' %>
 						</div>
 
 					<% end %>
