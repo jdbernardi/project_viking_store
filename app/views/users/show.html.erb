@@ -131,8 +131,8 @@
 
 	<tr>
 		<td>
-			<%= link_to "Create Order", :class => "btn" %><br />
-			<%= link_to "Create Address", :class => "btn" %>
+			<%= link_to "Create Order" %><br />
+			<%= link_to "Create Address", new_address_path( :id => @user.id ) %>
 		</td>
 	</tr>
 

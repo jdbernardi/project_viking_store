@@ -44,14 +44,25 @@
 			    <%= @user.errors[:address].join %>
 			  <% end %>
 
-					<%= f.collection_select :billing_id, @user.addresses, :id, :street_address, required: true, required: true %><br />
+			  <% if params[:action] == 'new' %>
+
+			  	<%= text_field_tag :street_address %>
+			  	<%= text_field_tag :street_address_2 %>
+			  	<%= text_field_tag :city %>
+			  	<%= collection_select :state, :id, State.all, :id, :name %>
+			  	<%= text_field_tag :zip_code %>
+
+			  <% else %>
+
+					<%= f.collection_select :billing_id, @user.addresses, :id, :street_address, required: true %><br />
 
 					<%= f.label :default_shipping_address %>
 					<% if !@user.errors[:address].empty? %>
 				    <%= @user.errors[:address].join %>
 				  <% end %>
-					<%= f.collection_select :shipping_id, @user.addresses, :id, :street_address, required: true, required: true %><br />
+					<%= f.collection_select :shipping_id, @user.addresses, :id, :street_address, required: true %><br />
 
+					<% end %>
 
 				<%= f.submit :Add, class: "btn btn-primary" %><br />
 				<%= f.submit :Delete, method: :delete, data: {confirm: "Really delete?"} %>
