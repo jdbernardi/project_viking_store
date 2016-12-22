@@ -136,6 +136,27 @@ class OrdersController < ApplicationController
 	end
 
 
+	def delete_order
+
+		@order = Order.find( params[:id] )
+
+		if @order.destroy
+
+			flash.notice = "Order deleted!"
+			redirect_to order_path( @order )
+
+		else
+
+			flash.notice = "Oops! Order NOT deleted!"
+			redirect_to edit_order_path( @order )
+
+		end
+
+
+
+	end
+
+
 	def destroy
 
 		@order_content = OrderContent.find( params[:id] )

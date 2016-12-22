@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
  	patch '/admin/user/addresses/update' => 'addresses#update'
 
+ 	delete '/admin/orders/:id/delete_order' => 'orders#delete_order'
 
  	post '/admin/user/addresses/new' => 'addresses#create'
 
