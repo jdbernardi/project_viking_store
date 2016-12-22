@@ -95,9 +95,17 @@ class OrdersController < ApplicationController
 
 			quantities = remove_blanks( params["quantities"] )
 			product_ids = remove_blanks( params["product_ids"])
-						binding.pry
+
+			check_product_ids_and_quantities( product_ids, quantities )
+
+      flash.notice = "Products added!"
+
+			redirect_to order_path( @order )
+
 		else
-			binding.pry
+
+      flash.notice = "Products fields invalid!"
+
 			redirect_to edit_order_path( @order )
 			# render errors
 

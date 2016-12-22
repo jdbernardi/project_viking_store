@@ -6,6 +6,14 @@ module OrdersHelper
 
 	end
 
+
+	def errors
+
+			flash.notice = "#{@order.errors.full_messages.join}"
+
+	end
+
+
 	def is_number?(string)
 
 		true if Float( string ) rescue false
