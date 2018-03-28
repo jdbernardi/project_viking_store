@@ -5,6 +5,13 @@ source 'https://rubygems.org'
 gem 'rails', '~> 5.0.0'
 gem 'pg'
 
+group :production do
+
+	gem 'pg'
+	gem 'rails_12factor'
+
+end
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
